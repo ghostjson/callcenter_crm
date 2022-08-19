@@ -1,5 +1,8 @@
 <?php
 
+use \Illuminate\Support\Facades\Route;
+
+
 // Login And Forget Password Routes
 Route::group(['namespace' => 'Auth', 'prefix' => 'admin', 'middleware' => ['web']], function () {
 
@@ -8,6 +11,9 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'admin', 'middleware' => ['web'
     Route::get('logout', ['as' => 'admin.logout', 'uses' => 'AdminLoginController@logout']);
 });
 
+Route::get('stage', function (){
+  return view('stage');
+});
 
 // Admin Panel After Login
 Route::group(['middleware' => ['auth.admin', 'web', 'admin.permission.check'],'namespace' => 'Admin', 'prefix' => 'admin'], function () {
