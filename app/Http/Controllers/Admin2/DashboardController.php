@@ -20,7 +20,7 @@ class DashboardController extends AdminBaseController
     public function __construct()
     {
         parent::__construct();
-        $this->pageTitle = trans('menu.dashboard.blade.php');
+        $this->pageTitle = trans('Dashboard');
         $this->pageIcon = 'fa fa-home';
         $this->dashboardActive = 'active';
     }

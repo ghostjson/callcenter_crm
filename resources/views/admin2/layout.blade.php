@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     {{--    <title>Login &mdash; {{ $settings->name }}</title>--}}
-    <meta name="description" content="Login Page" />
+    <meta name="description" content="Login Page"/>
     <!-- Font Tags Start -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset("assets/font/CS-Interface/style.css") }}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset("assets/font/CS-Interface/style.css") }}"/>
     <!-- Font Tags End -->
     <!-- Vendor Styles Start -->
-    <link rel="stylesheet" href="{{ asset("assets/css/vendor/bootstrap.min.css") }}" />
-    <link rel="stylesheet" href="{{asset("assets/css/vendor/OverlayScrollbars.min.css")}}" />
+    <link rel="stylesheet" href="{{ asset("assets/css/vendor/bootstrap.min.css") }}"/>
+    <link rel="stylesheet" href="{{asset("assets/css/vendor/OverlayScrollbars.min.css")}}"/>
 
     <!-- Vendor Styles End -->
     <!-- Template Base Styles Start -->
-    <link rel="stylesheet" href="{{ asset("assets/css/styles.css") }}" />
+    <link rel="stylesheet" href="{{ asset("assets/css/styles.css") }}"/>
     <!-- Template Base Styles End -->
 
-    <link rel="stylesheet" href="{{ asset("assets/css/main.css") }}" />
+    <link rel="stylesheet" href="{{ asset("assets/css/main.css") }}"/>
     <script src="{{ asset("assets/js/base/loader.js") }}"></script>
 </head>
 
@@ -31,6 +31,31 @@
 
     <main>
         <div class="container">
+
+            <!-- Title and Top Buttons Start -->
+            <div class="page-title-container">
+                <div class="row">
+                    <!-- Title Start -->
+                    <div class="col-12 col-sm-6">
+                        <h1 class="mb-0 pb-0 display-4" id="title">
+                            {{ $pageTitle }}
+                        </h1>
+
+                        <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
+                            @if($pageTitle != 'Dashboard')
+                                <ul class="breadcrumb pt-0">
+                                    <li class="breadcrumb-item active"><a href="{{ route('admin.dashboard.index') }}">@lang('menu.home')</a></li>
+                                    <li class="breadcrumb-item"><a href="#">{{ $pageTitle }}</a></li>
+                                </ul>
+                            @endif
+                        </nav>
+                    </div>
+                    <!-- Title End -->
+
+
+                </div>
+            </div>
+            <!-- Title and Top Buttons End -->
 
             @yield('main')
 
