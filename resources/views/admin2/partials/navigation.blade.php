@@ -188,7 +188,7 @@
         <div class="menu-container flex-grow-1">
             <ul id="menu" class="menu">
                 <li>
-                    <a href="#dashboard" data-href="#">
+                    <a href="{{ route('admin.dashboard.index') }}">
                         <i data-cs-icon="home" class="icon" data-cs-size="18"></i>
                         <span class="label">@lang('menu.dashboard')</span>
                     </a>
@@ -200,32 +200,32 @@
                     </a>
                     <ul id="lead-management">
                         <li>
-                            <a href="Dashboards.Default.html">
+                            <a href="{{ route('admin.callmanager.index') }}">
                                 <span class="label">@lang('menu.callManager')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Visual.html">
+                            <a href="{{ route('admin.campaigns.index') }}">
                                 <span class="label">@lang('menu.campaigns')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Analytic.html">
+                            <a href="{{ route('admin.call-enquiry.index') }}">
                                 <span class="label">@lang('menu.callEnquiry')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Analytic.html">
+                            <a href="{{ route('admin.call-history.index') }}">
                                 <span class="label">@lang('menu.callHistory')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Analytic.html">
+                            <a href="{{ route('admin.campaigns.import-leads') }}">
                                 <span class="label">@lang('menu.importLeads')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Analytic.html">
+                            <a href="{{ route('admin.campaigns.export-leads') }}">
                                 <span class="label">@lang('menu.exportLeads')</span>
                             </a>
                         </li>
@@ -238,12 +238,12 @@
                     </a>
                     <ul id="dashboards">
                         <li>
-                            <a href="Dashboards.Default.html">
+                            <a href="{{ route('admin.pending-callback.index') }}">
                                 <span class="label">@lang('menu.pendingCallbacks')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Visual.html">
+                            <a href="{{ route('admin.appointments.index') }}">
                                 <span class="label">@lang('menu.appointmentCalendar')</span>
                             </a>
                         </li>
@@ -256,12 +256,12 @@
                     </a>
                     <ul id="user-management">
                         <li>
-                            <a href="Dashboards.Default.html">
+                            <a href="{{ route('admin.users.index') }}">
                                 <span class="label">@lang('menu.staffMembers')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Visual.html">
+                            <a href="{{ route('admin.sales-users.index') }}">
                                 <span class="label">@lang('menu.salesMembers')</span>
                             </a>
                         </li>
@@ -274,17 +274,17 @@
                     </a>
                     <ul id="nav-settings">
                         <li>
-                            <a href="Dashboards.Default.html">
+                            <a href="{{ route('admin.email-templates.index') }}">
                                 <span class="label">@lang('menu.emailTemplates')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Default.html">
+                            <a href="{{ route('admin.forms.index') }}">
                                 <span class="label">@lang('menu.formBuilder')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="Dashboards.Visual.html">
+                            <a href="{{ route('admin.settings.company.index') }}">
                                 <span class="label">@lang('menu.settings')</span>
                             </a>
                         </li>
