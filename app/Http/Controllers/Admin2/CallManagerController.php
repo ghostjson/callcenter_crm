@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 
 use App\Classes\Common;
@@ -67,7 +67,7 @@ class CallManagerController extends AdminBaseController
         }
 
         $this->type = $type;
-        return view('admin.callmanager.index', $this->data);
+        return view('admin2.callmanager.index', $this->data);
     }
 
     public function getLists(Request $request)
@@ -357,7 +357,7 @@ class CallManagerController extends AdminBaseController
         $callLog->save();
 
         $this->callLog = $callLog;
-        return view('admin.callmanager.startlead', $this->data);
+        return view('admin2.callmanager.startlead', $this->data);
     }
 
     public function takeLeadAction(Request $request, $leadId, $action)

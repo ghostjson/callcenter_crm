@@ -14,6 +14,8 @@
     <!-- Vendor Styles Start -->
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/bootstrap.min.css") }}"/>
     <link rel="stylesheet" href="{{asset("assets/css/vendor/OverlayScrollbars.min.css")}}"/>
+    <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2.min.css") }}" />
+    <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2-bootstrap4.min.css") }}" />
 
     <!-- Vendor Styles End -->
     <!-- Template Base Styles Start -->
@@ -74,6 +76,7 @@
 <script src="{{ asset('assets/js/vendor/jquery.validate/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('assets/js/vendor/jquery.validate/additional-methods.min.js') }}"></script>
 <script src="{{ asset('assets/js/ajax-helper/admin/helper.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/select2.full.min.js') }}"></script>
 <!-- Vendor Scripts End -->
 
 <!-- Template Base Scripts Start -->
@@ -90,5 +93,10 @@
 <script src="{{ asset('assets/js/common.js') }}"></script>
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
 <!-- Page Specific Scripts End -->
+<script src="{{ asset('assets/modules/izitoast/js/iziToast.min.js') }}"></script>
+<script src="{{ asset('assets/modules/sweetalert/sweetalert.min.js') }}"></script>
+
+@yield('scripts')
+
 </body>
 </html>
