@@ -25,77 +25,77 @@
     <div class="row" id="campaigns_lists">
         @if($type == 'active')
             @forelse($userCampaigns as $userCampaign)
-                <div class="col-12 col-md-12 col-lg-6">
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="card card-success profile-widget">
                         <div class="card-header">
                             <h4>
                                 <a href="{{ route('admin.campaigns.show', [md5($userCampaign->id)]) }}"> {{ $userCampaign->name }}</a>
                             </h4>
                         </div>
-                        <div class="row mt-2" style="padding-left: 10px">
-                            <div class="col-4 mb-5">
-                                <div class="card hover-border-primary sh-20 sw-20">
-                                    <div
-                                        class="h-100 d-flex flex-column justify-content-between card-body align-items-center">
-                                        <div
-                                            class="bg-gradient-2 sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                 viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.5"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="cs-icon cs-icon-alarm d-inline-block text-primary">
-                                                <circle cx="10" cy="10" r="7"></circle>
-                                                <path
-                                                    d="M16 2 18 4M4 2 2 4M7 17 6 18M13 17 14 18M8 12 9.70711 10.2929C9.89464 10.1054 10 9.851 10 9.58579V6"></path>
-                                            </svg>
-                                        </div>
-                                        <div
-                                            class="heading text-center mb-0 sh-4 d-flex align-items-center lh-1">{{ $userCampaign->remaining_leads ?? '-' }}</div>
-                                        <div class="text-small text-primary">@lang('app.remaining')</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 mb-5">
-                                <div class="card hover-border-primary sh-20 sw-20">
-                                    <div
-                                        class="h-100 d-flex flex-column justify-content-between card-body align-items-center">
-                                        <div
-                                            class="bg-gradient-2 sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                 viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.5"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="cs-icon cs-icon-check d-inline-block text-primary">
-                                                <path
-                                                    d="M16 5L7.7051 14.2166C7.32183 14.6424 6.65982 14.6598 6.2547 14.2547L3 11"></path>
-                                            </svg>
-                                        </div>
-                                        <div
-                                            class="heading text-center mb-0 sh-4 d-flex align-items-center lh-1">{{ $userCampaign->total_leads -  $userCampaign->remaining_leads }}</div>
-                                        <div class="text-small text-primary">@lang('app.completed')</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 mb-5">
-                                <div class="card hover-border-primary sh-20 sw-20">
-                                    <div
-                                        class="h-100 d-flex flex-column justify-content-between card-body align-items-center">
-                                        <div
-                                            class="bg-gradient-2 sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                 viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.5"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="cs-icon cs-icon-list d-inline-block text-primary">
-                                                <path d="M8 3 18 3M8 10 18 10M8 17 18 17"></path>
-                                                <path
-                                                    d="M2 3C2 2.44772 2.44772 2 3 2V2C3.55228 2 4 2.44772 4 3V3C4 3.55228 3.55228 4 3 4V4C2.44772 4 2 3.55228 2 3V3zM2 10C2 9.44772 2.44772 9 3 9V9C3.55228 9 4 9.44772 4 10V10C4 10.5523 3.55228 11 3 11V11C2.44772 11 2 10.5523 2 10V10zM2 17C2 16.4477 2.44772 16 3 16V16C3.55228 16 4 16.4477 4 17V17C4 17.5523 3.55228 18 3 18V18C2.44772 18 2 17.5523 2 17V17z"></path>
-                                            </svg>
-                                        </div>
-                                        <div
-                                            class="heading text-center mb-0 sh-4 d-flex align-items-center lh-1">{{ $userCampaign->total_leads ?? '-' }}</div>
-                                        <div class="text-small text-primary">@lang('app.total')</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="row mt-2" style="padding-left: 10px">--}}
+{{--                            <div class="col-4 mb-5">--}}
+{{--                                <div class="card hover-border-primary sh-20 sw-20">--}}
+{{--                                    <div--}}
+{{--                                        class="h-100 d-flex flex-column justify-content-between card-body align-items-center">--}}
+{{--                                        <div--}}
+{{--                                            class="bg-gradient-2 sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center">--}}
+{{--                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"--}}
+{{--                                                 viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.5"--}}
+{{--                                                 stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                 class="cs-icon cs-icon-alarm d-inline-block text-primary">--}}
+{{--                                                <circle cx="10" cy="10" r="7"></circle>--}}
+{{--                                                <path--}}
+{{--                                                    d="M16 2 18 4M4 2 2 4M7 17 6 18M13 17 14 18M8 12 9.70711 10.2929C9.89464 10.1054 10 9.851 10 9.58579V6"></path>--}}
+{{--                                            </svg>--}}
+{{--                                        </div>--}}
+{{--                                        <div--}}
+{{--                                            class="heading text-center mb-0 sh-4 d-flex align-items-center lh-1">{{ $userCampaign->remaining_leads ?? '-' }}</div>--}}
+{{--                                        <div class="text-small text-primary">@lang('app.remaining')</div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-4 mb-5">--}}
+{{--                                <div class="card hover-border-primary sh-20 sw-20">--}}
+{{--                                    <div--}}
+{{--                                        class="h-100 d-flex flex-column justify-content-between card-body align-items-center">--}}
+{{--                                        <div--}}
+{{--                                            class="bg-gradient-2 sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center">--}}
+{{--                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"--}}
+{{--                                                 viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.5"--}}
+{{--                                                 stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                 class="cs-icon cs-icon-check d-inline-block text-primary">--}}
+{{--                                                <path--}}
+{{--                                                    d="M16 5L7.7051 14.2166C7.32183 14.6424 6.65982 14.6598 6.2547 14.2547L3 11"></path>--}}
+{{--                                            </svg>--}}
+{{--                                        </div>--}}
+{{--                                        <div--}}
+{{--                                            class="heading text-center mb-0 sh-4 d-flex align-items-center lh-1">{{ $userCampaign->total_leads -  $userCampaign->remaining_leads }}</div>--}}
+{{--                                        <div class="text-small text-primary">@lang('app.completed')</div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-4 mb-5">--}}
+{{--                                <div class="card hover-border-primary sh-20 sw-20">--}}
+{{--                                    <div--}}
+{{--                                        class="h-100 d-flex flex-column justify-content-between card-body align-items-center">--}}
+{{--                                        <div--}}
+{{--                                            class="bg-gradient-2 sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center">--}}
+{{--                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"--}}
+{{--                                                 viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.5"--}}
+{{--                                                 stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                 class="cs-icon cs-icon-list d-inline-block text-primary">--}}
+{{--                                                <path d="M8 3 18 3M8 10 18 10M8 17 18 17"></path>--}}
+{{--                                                <path--}}
+{{--                                                    d="M2 3C2 2.44772 2.44772 2 3 2V2C3.55228 2 4 2.44772 4 3V3C4 3.55228 3.55228 4 3 4V4C2.44772 4 2 3.55228 2 3V3zM2 10C2 9.44772 2.44772 9 3 9V9C3.55228 9 4 9.44772 4 10V10C4 10.5523 3.55228 11 3 11V11C2.44772 11 2 10.5523 2 10V10zM2 17C2 16.4477 2.44772 16 3 16V16C3.55228 16 4 16.4477 4 17V17C4 17.5523 3.55228 18 3 18V18C2.44772 18 2 17.5523 2 17V17z"></path>--}}
+{{--                                            </svg>--}}
+{{--                                        </div>--}}
+{{--                                        <div--}}
+{{--                                            class="heading text-center mb-0 sh-4 d-flex align-items-center lh-1">{{ $userCampaign->total_leads ?? '-' }}</div>--}}
+{{--                                        <div class="text-small text-primary">@lang('app.total')</div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">@lang('module_campaign.startedOn')</div>

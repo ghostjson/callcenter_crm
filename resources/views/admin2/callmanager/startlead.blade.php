@@ -24,14 +24,14 @@
                                 <div class="col-md-3">
                                     <div class="row">
                                         <label for="reference_number" class="col-sm-12 col-form-label">
-                                            @lang('app.campaign') : {{ $campaign->name }}
+                                            <strong>@lang('app.campaign')</strong> : {{ $campaign->name }}
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="row">
                                         <label for="reference_number" class="col-sm-12 col-form-label">
-                                            @lang('module_lead.leadNumber') : {{ $leadNumber }}
+                                            <strong>@lang('module_lead.leadNumber')</strong> : {{ $leadNumber }}
                                             /{{ $campaign->total_leads }}
                                         </label>
                                     </div>
@@ -39,13 +39,16 @@
                                 <div class="col-md-3">
                                     <div class="row">
                                         <label for="reference_number" class="col-sm-12 col-form-label">
-                                            @lang('module_lead.lastActionBy')
+                                            <strong>@lang('module_lead.lastActionBy')</strong>
                                             : {{ $lead->lastActioner ? $lead->lastActioner->name : $user->name }}
                                         </label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="col-xs-12">
+                                <hr >
+                            </div>
+                            <div class="row mt-3">
                                 <div class="col-auto">
                                     <form>
                                         <div class="row g-3">
@@ -73,7 +76,10 @@
                                                 </div>
                                             @endfor
                                         </div>
-                                        <div class="row g-3">
+                                        <div class="col-xs-12">
+                                            <hr >
+                                        </div>
+                                        <div class="row g-3 mt-3">
 
                                             <div class="col-md-6">
                                                 <label for="inputState">@lang('module_lead.interested')</label>
@@ -102,7 +108,10 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="col-xs-12">
+                                            <hr >
+                                        </div>
+                                        <div class="row mt-3">
                                             <div class="form-group row mb-4">
                                                 <label for="book_appointment" class="col-form-label text-md-right col-12 col-md-3 col-lg-3">@lang('module_lead.book_appointment')</label>
                                                 <div class="col-sm-12 col-md-5">
