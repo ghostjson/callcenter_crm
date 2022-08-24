@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 
 use App\Classes\Common;
@@ -55,7 +55,7 @@ class CallEnquiryController extends AdminBaseController
         // Call Enquiry Stats
         $this->getCallEnquiryStats();
 
-        return view('admin.call-enquiry.index', $this->data);
+        return view('admin2.call-enquiry.index', $this->data);
     }
 
      /**
@@ -183,8 +183,8 @@ class CallEnquiryController extends AdminBaseController
         // Call Enquiry Stats
         $this->getCallEnquiryStats($campaignId);
 
-        $html = view('admin.call-enquiry.campaign-form-field', $this->data)->render();
-        $htmlStats = view('admin.call-enquiry.call-enquiry-stats', $this->data)->render();
+        $html = view('admin2.call-enquiry.campaign-form-field', $this->data)->render();
+        $htmlStats = view('admin2.call-enquiry.call-enquiry-stats', $this->data)->render();
 
         $resultData = [
             'html' => $html,
