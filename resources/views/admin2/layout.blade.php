@@ -13,9 +13,10 @@
     <!-- Font Tags End -->
     <!-- Vendor Styles Start -->
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/bootstrap.min.css") }}"/>
-    <link rel="stylesheet" href="{{asset("assets/css/vendor/OverlayScrollbars.min.css")}}"/>
+    <link rel="stylesheet" href="{{ asset("assets/css/vendor/OverlayScrollbars.min.css")}}"/>
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2.min.css") }}" />
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2-bootstrap4.min.css") }}" />
+    <link rel="stylesheet" href="{{ asset("assets/css/vendor/datatables.min.css") }}" />
 
     <!-- Vendor Styles End -->
     <!-- Template Base Styles Start -->

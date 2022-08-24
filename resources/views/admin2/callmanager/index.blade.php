@@ -8,7 +8,7 @@
             <div class="card mb-5">
                 <div class="card-body d-flex justify-content-between">
                     <h3>
-                        Active Campaigns
+                       @lang('module_campaign_activeCampaigns')
                     </h3>
                     <div class="btn-group">
                         <a href="{{ route('admin.callmanager.index') }}"

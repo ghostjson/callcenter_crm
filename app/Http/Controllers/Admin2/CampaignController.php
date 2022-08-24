@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 
 use App\Classes\Common;
@@ -52,7 +52,7 @@ class CampaignController extends AdminBaseController
     {
         $this->campaignActive = 'active';
         $this->campaignType = $request->has('type') && $request->type == 'completed' ? 'completed' : 'active';
-        return view('admin.campaigns.index', $this->data);
+        return view('admin2.campaigns.index', $this->data);
     }
 
      /**
