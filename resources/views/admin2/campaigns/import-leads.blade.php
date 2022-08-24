@@ -1,22 +1,7 @@
-@extends('admin.admin_layouts')
+@extends('admin2.layout')
 
-@section('styles')
-    <link href="{{ asset('assets/modules/select2/dist/css/select2.min.css') }}" rel="stylesheet">
-@endsection
 
-@section('breadcrumb')
-
-    <div class="section-header">
-        <h1><i class="{{ $pageIcon }}"></i> {{ $pageTitle }}</h1>
-        <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard.index') }}">@lang('menu.home')</a></div>
-            <div class="breadcrumb-item">{{ $pageTitle }}</div>
-        </div>
-    </div>
-@endsection
-
-@section('content')
-
+@section('main')
     {!!  Form::open(['url' => '','autocomplete'=>'off','id'=>'add-edit-form']) 	 !!}
     <input type="hidden" id="lead_form_fields" name="lead_form_fields" value="" />
     <div class="row" id="step_2_div">
@@ -81,72 +66,67 @@
 
     </div>
     {{Form::close()}}
-
-@endsection
-
-@section('modals')
-    @include('admin.includes.add-edit-modal')
 @endsection
 
 @section('scripts')
-<script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
-<script src="{{ asset('assets/modules/jquery-ui/jquery-ui.min.js') }}"></script>
-<script>
+    <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script>
 
-    function importTypeClicked()
-    {
-        var importType = $('input[name=import_type]:checked').val();
+        function importTypeClicked()
+        {
+            var importType = $('input[name=import_type]:checked').val();
 
-        if(importType == 'file')
-        {
-            $('#importTextDiv').hide();
-            $('#importFileDiv').show();
-        } else if(importType == 'text')
-        {
-            $('#importFileDiv').hide();
-            $('#importTextDiv').show();
+            if(importType == 'file')
+            {
+                $('#importTextDiv').hide();
+                $('#importFileDiv').show();
+            } else if(importType == 'text')
+            {
+                $('#importFileDiv').hide();
+                $('#importTextDiv').show();
+            }
         }
-    }
 
-    function importLead() {
-        var url = "{{ route('admin2.campaigns.import-lead-data') }}";
+        function importLead() {
+            var url = "{{ route('admin.campaigns.import-lead-data') }}";
 
-        $.easyAjax({
-            type: 'POST',
-            url: url,
-            file: true,
-            container: "#add-edit-form",
-            messagePosition: "toastr",
-            success: function (response) {
-                if(response.status == 'success')
-                {
-                    $('#step_2_div').hide();
-                    $('#step_3_div').html(response.data.html);
+            $.easyAjax({
+                type: 'POST',
+                url: url,
+                file: true,
+                container: "#add-edit-form",
+                messagePosition: "toastr",
+                success: function (response) {
+                    if(response.status == 'success')
+                    {
+                        $('#step_2_div').hide();
+                        $('#step_3_div').html(response.data.html);
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    function submitLeadData() {
-        var leadFormFields =  JSON.stringify(jsMatchedColumnArray);
-        $('#lead_form_fields').val(leadFormFields);
+        function submitLeadData() {
+            var leadFormFields =  JSON.stringify(jsMatchedColumnArray);
+            $('#lead_form_fields').val(leadFormFields);
 
-        var url = "{{ route('admin.campaigns.save-lead-data') }}";
+            var url = "{{ route('admin.campaigns.save-lead-data') }}";
 
-        $.easyAjax({
-            type: 'POST',
-            url: url,
-            file: true,
-            container: "#add-edit-form",
-            messagePosition: "toastr",
-            success: function (response) {
-                if(response.status == 'success')
-                {
-                    $('#step_2_div').hide();
-                    $('#step_3_div').html(response.data.html);
+            $.easyAjax({
+                type: 'POST',
+                url: url,
+                file: true,
+                container: "#add-edit-form",
+                messagePosition: "toastr",
+                success: function (response) {
+                    if(response.status == 'success')
+                    {
+                        $('#step_2_div').hide();
+                        $('#step_3_div').html(response.data.html);
+                    }
                 }
-            }
-        });
-    }
-</script>
+            });
+        }
+    </script>
 @endsection

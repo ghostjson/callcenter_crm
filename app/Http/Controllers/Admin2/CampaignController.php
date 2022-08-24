@@ -430,7 +430,7 @@ class CampaignController extends AdminBaseController
         $this->pageIcon = 'fa fa-anchor';
 
         $this->campaignType = $request->has('type') && $request->type == 'completed' ? 'completed' : 'active';
-        return view('admin.campaigns.export-leads', $this->data);
+        return view('admin2.campaigns.export-leads', $this->data);
     }
 
     public function getExportLeadLists(Request $request)
@@ -626,7 +626,7 @@ class CampaignController extends AdminBaseController
         $this->importLeadActive = 'active';
         $this->pageIcon = 'fa fa-upload';
 
-        return view('admin.campaigns.import-leads', $this->data);
+        return view('admin2.campaigns.import-leads', $this->data);
     }
 
     public function importLeadData(ImportLeadRequest $request)
@@ -769,9 +769,9 @@ class CampaignController extends AdminBaseController
 
         if($fullForm)
         {
-            $view = 'admin.campaigns.import-leads-data';
+            $view = 'admin2.campaigns.import-leads-data';
         } else {
-            $view = 'admin.campaigns.import-leads-data-content';
+            $view = 'admin2.campaigns.import-leads-data-content';
         }
 
         $html = view($view, $this->data)->render();
@@ -795,7 +795,7 @@ class CampaignController extends AdminBaseController
 
         $this->saveImportedLeads($request, $campaign);
 
-        return Reply::redirect( route('admin.campaigns.index'), 'messages.importedSuccessfully');
+        return Reply::redirect( route('admin2.campaigns.index'), 'messages.importedSuccessfully');
     }
 
     private function saveImportedLeads($request, $campaign)
@@ -945,7 +945,7 @@ class CampaignController extends AdminBaseController
             ->oldest('order')
             ->get();
 
-        return view('admin.campaigns.details.create', $this->data);
+        return view('admin2.campaigns.details.create', $this->data);
     }
 
     public function storeLead(Request $request, $campaignId)
