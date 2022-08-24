@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 
 use App\Classes\Common;
@@ -55,7 +55,7 @@ class CallHistoryController extends AdminBaseController
         $this->campaignTeamMembers = User::select('id', 'first_name', 'last_name')
                                         ->get();
 
-        return view('admin.call-history.index', $this->data);
+        return view('admin2.call-history.index', $this->data);
     }
 
      /**
