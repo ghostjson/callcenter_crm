@@ -222,7 +222,7 @@ Route::group(['middleware' => ['auth.admin', 'web', 'admin.permission.check'],'n
     //region Settings Routes
     Route::resource('settings/profile', 'ProfileSettingController', ['as' => 'admin2.settings', 'only' => ['index','store']]);
     Route::group(
-        ['prefix' => 'settings', 'middleware' => ['auth2.admin.check']], function () {
+        ['prefix' => 'settings', 'middleware' => ['auth.admin.check']], function () {
 
         Route::resource('company', 'CompanySettingController', ['as' => 'admin2.settings', 'only' => ['index','store']]);
         Route::post('send-test-email', ['as' => 'admin2.settings.send-test-email', 'uses' => 'EmailSettingController@sendTestEmail']);

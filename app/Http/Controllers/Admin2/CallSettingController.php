@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 use App\Classes\Common;
 
@@ -36,7 +36,7 @@ class CallSettingController extends AdminBaseController
         $this->editSetting = $this->settings;
         $this->twilioNumber = TwilioNumber::first();
 
-        return view('admin.settings.call.twilio', $this->data);
+        return view('admin2.settings.call.twilio', $this->data);
     }
 
     public function store(StoreRequest $request)
@@ -52,7 +52,7 @@ class CallSettingController extends AdminBaseController
 
         \DB::commit();
 
-        return Reply::redirect(route('admin.settings.calls.index'), 'messages.updateSuccess');
+        return Reply::redirect(route('admin2.settings.calls.index'), 'messages.updateSuccess');
 
     }
 

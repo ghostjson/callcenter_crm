@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 use App\Classes\Common;
 use App\Classes\Reply;
@@ -36,7 +36,7 @@ class CompanySettingController extends AdminBaseController
         sort($allLangs);
 
         $this->allLangs = $allLangs;
-        return view('admin.settings.company.edit', $this->data);
+        return view('admin2.settings.company.edit', $this->data);
     }
 
     public function store(StoreRequest $request)
@@ -71,7 +71,7 @@ class CompanySettingController extends AdminBaseController
         $setting->save();
 
         \DB::commit();
-        return Reply::redirect(route('admin.settings.company.index'), 'messages.updateSuccess');
+        return Reply::redirect(route('admin2.settings.company.index'), 'messages.updateSuccess');
 
     }
 

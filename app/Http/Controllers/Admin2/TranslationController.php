@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 
 use App\Classes\Common;
@@ -59,7 +59,7 @@ class TranslationController extends AdminBaseController
 
         $editUrl = $group != null ? action('\Barryvdh\TranslationManager\Controller@postEdit', [$group]) : '';
 
-        return view('admin.settings.translations.locale', $this->data)
+        return view('admin2.settings.translations.locale', $this->data)
             ->with('translations', $translations)
             ->with('locales', $locales)
             ->with('groups', $groups)

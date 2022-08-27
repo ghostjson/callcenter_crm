@@ -31,7 +31,7 @@
 
                     $.easyAjax({
                         type: 'GET',
-                        url: '{!! route("admin.updateVersion.update") !!}',
+                        url: '{!! route("admin2.updateVersion.update") !!}',
                         success: function (response) {
                             if(response.status =='success'){
                                 updateAreaDiv.html("<strong>What's New:-</strong><br> " + response.description);
@@ -49,7 +49,7 @@
     function downloadScript() {
         $.easyAjax({
             type: 'GET',
-            url: '{!! route("admin.updateVersion.download") !!}',
+            url: '{!! route("admin2.updateVersion.download") !!}',
             success: function (response) {
                 clearInterval(refreshPercent);
                 $('#percent-complete').css('width', '100%');
@@ -72,7 +72,7 @@
     function getDownloadPercent() {
         $.easyAjax({
             type: 'GET',
-            url: '{!! route("admin.updateVersion.downloadPercent") !!}',
+            url: '{!! route("admin2.updateVersion.downloadPercent") !!}',
             success: function (response) {
                 response = response.toFixed(1);
                 $('#percent-complete').css('width', response + '%');
@@ -84,7 +84,7 @@
     function checkIfFileExtracted() {
         $.easyAjax({
             type: 'GET',
-            url: '{!! route("admin.updateVersion.checkIfFileExtracted") !!}',
+            url: '{!! route("admin2.updateVersion.checkIfFileExtracted") !!}',
             success: function (response) {
                 checkInstall = false;
                 if(response.status == 'success'){
@@ -111,7 +111,7 @@
     function installScript() {
         $.easyAjax({
             type: 'GET',
-            url: '{!! route("admin.updateVersion.install") !!}',
+            url: '{!! route("admin2.updateVersion.install") !!}',
             success: function (response) {
                 if(response.status == 'success'){
                     window.location.reload();

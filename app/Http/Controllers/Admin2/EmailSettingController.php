@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 use App\Classes\Common;
 use App\Classes\Reply;
@@ -32,7 +32,7 @@ class EmailSettingController extends AdminBaseController
     {
         $this->editSetting = EmailSetting::first();
 
-        return view('admin.settings.email.edit', $this->data);
+        return view('admin2.settings.email.edit', $this->data);
     }
 
     public function store(StoreRequest $request)
@@ -74,7 +74,7 @@ class EmailSettingController extends AdminBaseController
 
         $setting->save();
 
-        return Reply::redirect(route('admin.settings.email.index'), 'messages.updateSuccess');
+        return Reply::redirect(route('admin2.settings.email.index'), 'messages.updateSuccess');
 
     }
 
@@ -93,7 +93,7 @@ class EmailSettingController extends AdminBaseController
         $this->icon = 'edit';
 
         // Call the same create view for edit
-        return view('admin.settings.email.test-mail', $this->data);
+        return view('admin2.settings.email.test-mail', $this->data);
     }
 
     public function sendTestEmail(Request $request)

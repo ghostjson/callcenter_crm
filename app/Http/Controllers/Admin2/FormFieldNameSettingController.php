@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 use App\Classes\Common;
 use App\Classes\Reply;
@@ -23,7 +23,7 @@ class FormFieldNameSettingController extends AdminBaseController
 
     public function index()
     {
-        return view('admin.settings.form-field-name.edit', $this->data);
+        return view('admin2.settings.form-field-name.edit', $this->data);
     }
 
     public function store(StoreRequest $request)

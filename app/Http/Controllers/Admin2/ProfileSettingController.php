@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 use App\Classes\Common;
 use App\Classes\Reply;
@@ -31,7 +31,7 @@ class ProfileSettingController extends AdminBaseController
         $this->timezones = \DateTimeZone::listIdentifiers(\DateTimeZone::ALL);
         $this->dateObject = Carbon::now();
 
-        return view('admin.settings.profile.edit', $this->data);
+        return view('admin2.settings.profile.edit', $this->data);
     }
 
     public function store(StoreRequest $request)
@@ -142,7 +142,7 @@ class ProfileSettingController extends AdminBaseController
         $user->save();
 
         \DB::commit();
-        return Reply::redirect(route('admin.settings.profile.index'), 'messages.updateSuccess');
+        return Reply::redirect(route('admin2.settings.profile.index'), 'messages.updateSuccess');
 
     }
 

@@ -8,7 +8,7 @@
                     @lang('module_settings.newUpdate')
                     <label class="label label-success">{{ $updateVersionInfo['lastVersion'] }}</label>
                 </div>
-                <a href="{{ route('admin.settings.update-app.index') }}" class="btn btn-success btn-small">
+                <a href="{{ route('admin2.settings.update-app.index') }}" class="btn btn-success btn-small">
                     @lang('module_settings.updateNow') <i class="fa fa-arrow-right"></i>
                 </a>
             </div>

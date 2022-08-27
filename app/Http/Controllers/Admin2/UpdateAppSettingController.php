@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 use App\Classes\Reply;
 use Froiden\Envato\Functions\EnvatoUpdate;
@@ -46,7 +46,7 @@ class UpdateAppSettingController extends AdminBaseController
         $this->downloadLink = config('froiden_envato.update_baseurl'). '/'. $lastVersion['archive'];
         $this->updateFilePath = config('froiden_envato.tmp_path');
 
-        return view('admin.settings.update-app.index', $this->data);
+        return view('admin2.settings.update-app.index', $this->data);
     }
 
     public function store(Request $request)
@@ -56,7 +56,7 @@ class UpdateAppSettingController extends AdminBaseController
         $file->move($filename_tmp, $file->getClientOriginalName());
 
         $this->updateFilePath = config('froiden_envato.tmp_path');
-        $output = view('admin.settings.update-app.manual_files', $this->data)->render();
+        $output = view('admin2.settings.update-app.manual_files', $this->data)->render();
 
         return Reply::success('messages.dataFetchedSuccessfully', ['html' => $output]);
     }
