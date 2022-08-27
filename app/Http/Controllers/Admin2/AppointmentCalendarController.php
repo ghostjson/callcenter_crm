@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 use App\Classes\Reply;
 use App\Http\Requests\Admin\Appointment\StoreRequest;
@@ -34,7 +34,7 @@ class AppointmentCalendarController extends AdminBaseController
         $this->appointmentCalendarActive = 'active';
         $this->allSalesMembers = SalesMember::all();
 
-        return view('admin.appointment-calendar.index', $this->data);
+        return view('admin2.appointment-calendar.index', $this->data);
     }
 
     public function getAppointments(Request $request)
@@ -109,7 +109,7 @@ class AppointmentCalendarController extends AdminBaseController
 
         $this->allSalesMembers = SalesMember::all();
 
-        return view('admin.appointment-calendar.edit', $this->data);
+        return view('admin2.appointment-calendar.edit', $this->data);
     }
 
     public function update(UpdateRequest $request,$id)
@@ -175,7 +175,7 @@ class AppointmentCalendarController extends AdminBaseController
 
         $this->allSalesMembers = SalesMember::all();
 
-        return view('admin.appointment-calendar.add-edit', $this->data);
+        return view('admin2.appointment-calendar.add-edit', $this->data);
     }
 
     public function store(StoreRequest $request)

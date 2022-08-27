@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2-bootstrap4.min.css") }}" />
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/datatables.min.css") }}" />
     <link href="{{ asset('assets/modules/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/modules/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet">
+
     <!-- Vendor Styles End -->
     <!-- Template Base Styles Start -->
     <link rel="stylesheet" href="{{ asset("assets/css/styles.css") }}"/>
@@ -91,6 +93,8 @@
 <script src="{{ asset('assets/js/base/search.js') }}"></script>
 <script src="{{ asset('assets/js/base/settings.js') }}"></script>
 <script src="{{ asset('assets/js/base/init.js') }}"></script>
+<script src="{{ asset('assets/modules/fullcalendar/fullcalendar.min.js') }}"></script>
+
 <!-- Template Base Scripts End -->
 <!-- Page Specific Scripts Start -->
 <script src="{{ asset('assets/js/pages/auth.login.js') }}"></script>
