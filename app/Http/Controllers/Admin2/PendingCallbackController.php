@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 use App\Classes\Common;
 use App\Http\Requests\Admin\FollowUp\IndexRequest;
@@ -45,7 +45,7 @@ class PendingCallbackController extends AdminBaseController
         // Get callback information of today or un actioned calls
         $this->getCallBackStats();
 
-        return view('admin.callbacks.index', $this->data);
+        return view('admin2.callbacks.index', $this->data);
     }
 
      /**
@@ -149,7 +149,7 @@ class PendingCallbackController extends AdminBaseController
                                 ->oldest('order')
                                 ->get();
 
-        $html = view('admin.call-enquiry.campaign-form-field', $this->data)->render();
+        $html = view('admin2.call-enquiry.campaign-form-field', $this->data)->render();
 
         $resultData = [
             'html' => $html
@@ -176,7 +176,7 @@ class PendingCallbackController extends AdminBaseController
                                          ->where('campaign_members.campaign_id', $lead->campaign_id)
                                          ->get();
 
-        return view('admin.callbacks.add-edit', $this->data);
+        return view('admin2.callbacks.add-edit', $this->data);
     }
 
     public function store(StoreRequest $request)

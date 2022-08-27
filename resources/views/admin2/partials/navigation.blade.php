@@ -25,7 +25,7 @@
 
         <!-- User Menu Start -->
         <div class="user-container d-flex">
-            <a href="{{ route('admin.settings.profile.index') }}" class="d-flex user position-relative">
+            <a href="{{ route('admin2.settings.profile.index') }}" class="d-flex user position-relative">
                 <img class="profile" alt="profile" src="{{ $user->image_url }}" />
                 <div class="name">{{ $user->first_name }}</div>
             </a>
@@ -188,7 +188,7 @@
         <div class="menu-container flex-grow-1">
             <ul id="menu" class="menu">
                 <li>
-                    <a href="{{ route('admin.dashboard.index') }}">
+                    <a href="{{ route('admin2.dashboard.index') }}">
                         <i data-cs-icon="home" class="icon" data-cs-size="18"></i>
                         <span class="label">@lang('menu.dashboard')</span>
                     </a>
@@ -200,50 +200,50 @@
                     </a>
                     <ul id="lead-management">
                         <li>
-                            <a href="{{ route('admin.callmanager.index') }}">
+                            <a href="{{ route('admin2.callmanager.index') }}">
                                 <span class="label">@lang('menu.callManager')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.campaigns.index') }}">
+                            <a href="{{ route('admin2.campaigns.index') }}">
                                 <span class="label">@lang('menu.campaigns')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.call-enquiry.index') }}">
+                            <a href="{{ route('admin2.call-enquiry.index') }}">
                                 <span class="label">@lang('menu.callEnquiry')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.call-history.index') }}">
+                            <a href="{{ route('admin2.call-history.index') }}">
                                 <span class="label">@lang('menu.callHistory')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.campaigns.import-leads') }}">
+                            <a href="{{ route('admin2.campaigns.import-leads') }}">
                                 <span class="label">@lang('menu.importLeads')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.campaigns.export-leads') }}">
+                            <a href="{{ route('admin2.campaigns.export-leads') }}">
                                 <span class="label">@lang('menu.exportLeads')</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#dashboards" data-href="Dashboards.html">
+                    <a href="#appointments" data-href="Dashboards.html">
                         <i data-cs-icon="email" class="icon" data-cs-size="18"></i>
                         <span class="label">@lang('menu.appointments')</span>
                     </a>
-                    <ul id="dashboards">
+                    <ul id="appointments">
                         <li>
-                            <a href="{{ route('admin.pending-callback.index') }}">
+                            <a href="{{ route('admin2.pending-callback.index') }}">
                                 <span class="label">@lang('menu.pendingCallbacks')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.appointments.index') }}">
+                            <a href="{{ route('admin2.appointments.index') }}">
                                 <span class="label">@lang('menu.appointmentCalendar')</span>
                             </a>
                         </li>
@@ -256,12 +256,12 @@
                     </a>
                     <ul id="user-management">
                         <li>
-                            <a href="{{ route('admin.users.index') }}">
+                            <a href="{{ route('admin2.users.index') }}">
                                 <span class="label">@lang('menu.staffMembers')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.sales-users.index') }}">
+                            <a href="{{ route('admin2.sales-users.index') }}">
                                 <span class="label">@lang('menu.salesMembers')</span>
                             </a>
                         </li>
@@ -274,17 +274,17 @@
                     </a>
                     <ul id="nav-settings">
                         <li>
-                            <a href="{{ route('admin.email-templates.index') }}">
+                            <a href="{{ route('admin2.email-templates.index') }}">
                                 <span class="label">@lang('menu.emailTemplates')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.forms.index') }}">
+                            <a href="{{ route('admin2.forms.index') }}">
                                 <span class="label">@lang('menu.formBuilder')</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.settings.company.index') }}">
+                            <a href="{{ route('admin2.settings.company.index') }}">
                                 <span class="label">@lang('menu.settings')</span>
                             </a>
                         </li>

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2.min.css") }}" />
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2-bootstrap4.min.css") }}" />
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/datatables.min.css") }}" />
-
+    <link href="{{ asset('assets/modules/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
     <!-- Vendor Styles End -->
     <!-- Template Base Styles Start -->
     <link rel="stylesheet" href="{{ asset("assets/css/styles.css") }}"/>
@@ -78,6 +78,9 @@
 <script src="{{ asset('assets/js/vendor/jquery.validate/additional-methods.min.js') }}"></script>
 <script src="{{ asset('assets/js/ajax-helper/admin/helper.js') }}"></script>
 <script src="{{ asset('assets/js/vendor/select2.full.min.js') }}"></script>
+<script src="{{ asset('assets/modules/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('assets/modules/moment.min.js') }}"></script>
+
 <!-- Vendor Scripts End -->
 
 <!-- Template Base Scripts Start -->
