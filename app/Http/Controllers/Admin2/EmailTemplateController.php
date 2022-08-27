@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin2;
 
 
 use App\Classes\Common;
@@ -40,7 +40,7 @@ class EmailTemplateController extends AdminBaseController
 
     public function index(IndexRequest $request)
     {
-        return view('admin.email-templates.index', $this->data);
+        return view('admin2.email-templates.index', $this->data);
     }
 
     public function getLists()
@@ -68,13 +68,13 @@ class EmailTemplateController extends AdminBaseController
                 $text = '<div class="buttons">';
 
                 if($this->user->ability('admin', 'email_template_edit')) {
-                    $text .= '<a href="' . route('admin.email-templates.edit', $row->id) . '" class="btn btn-info btn-icon icon-left"
-                      data-toggle="tooltip" data-original-title="' . trans('app.edit') . '"><i class="fa fa-edit" aria-hidden="true"></i></a>';
+                    $text .= '<a href="' . route('admin.email-templates.edit', $row->id) . '" class="btn btn-icon icon-left"
+                      data-toggle="tooltip" data-original-title="' . trans('app.edit') . '"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="cs-icon cs-icon-check mb-3 d-inline-block text-primary"><path d="M16 5L7.7051 14.2166C7.32183 14.6424 6.65982 14.6598 6.2547 14.2547L3 11"></path></svg></a>';
                 }
 
                 if($this->user->ability('admin', 'email_template_delete')) {
-                    $text .= '<button onclick="deleteModal(' . $row->id . ')" class="btn btn-danger btn-icon icon-left"
-                      data-toggle="tooltip" data-original-title="' . trans('app.delete') . '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                    $text .= '<button onclick="deleteModal(' . $row->id . ')" class="btn btn-icon icon-left"
+                      data-toggle="tooltip" data-original-title="' . trans('app.delete') . '"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="red" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="cs-icon cs-icon-bin mb-3 d-inline-block text-primary"><path d="M4 5V14.5C4 15.9045 4 16.6067 4.33706 17.1111C4.48298 17.3295 4.67048 17.517 4.88886 17.6629C5.39331 18 6.09554 18 7.5 18H12.5C13.9045 18 14.6067 18 15.1111 17.6629C15.3295 17.517 15.517 17.3295 15.6629 17.1111C16 16.6067 16 15.9045 16 14.5V5"></path><path d="M14 5L13.9424 4.74074C13.6934 3.62043 13.569 3.06028 13.225 2.67266C13.0751 2.50368 12.8977 2.36133 12.7002 2.25164C12.2472 2 11.6734 2 10.5257 2L9.47427 2C8.32663 2 7.75281 2 7.29981 2.25164C7.10234 2.36133 6.92488 2.50368 6.77496 2.67266C6.43105 3.06028 6.30657 3.62044 6.05761 4.74074L6 5"></path><path d="M2 5H18M12 9V13M8 9V13"></path></svg></button>';
                 }
 
                 $text .= '</div>';
@@ -92,7 +92,7 @@ class EmailTemplateController extends AdminBaseController
 
         $this->emailTemplate = new EmailTemplate();
         $this->formFields = FormField::select('field_name')->groupBy('field_name')->get();
-        return view('admin.email-templates.add-edit', $this->data);
+        return view('admin2.email-templates.add-edit', $this->data);
     }
 
     public function store(StoreRequest $request)
@@ -106,7 +106,7 @@ class EmailTemplateController extends AdminBaseController
 
         \DB::commit();
 
-        return Reply::redirect(route('admin.email-templates.index'), 'messages.createSuccess');
+        return Reply::redirect(route('admin2.email-templates.index'), 'messages.createSuccess');
 
     }
 
@@ -127,7 +127,7 @@ class EmailTemplateController extends AdminBaseController
         $this->formFields = FormField::select('field_name')->groupBy('field_name')->get();
 
         // Call the same create view for edit
-        return view('admin.email-templates.add-edit', $this->data);
+        return view('admin2.email-templates.add-edit', $this->data);
     }
 
     public function update(UpdateRequest $request,$id)
@@ -147,7 +147,7 @@ class EmailTemplateController extends AdminBaseController
 
         \DB::commit();
 
-        return Reply::redirect(route('admin.email-templates.index'), 'messages.updateSuccess');
+        return Reply::redirect(route('admin2.email-templates.index'), 'messages.updateSuccess');
 
     }
 
@@ -201,7 +201,7 @@ class EmailTemplateController extends AdminBaseController
 
         $this->campaign =$campaign;
         $this->senderEmail = $senderEmail ? $senderEmail->field_value : '';
-        return view('admin.email-templates.write-edit-email', $this->data);
+        return view('admin2.email-templates.write-edit-email', $this->data);
     }
 
     public function sendMail(SendMailRequest $request, $leadId)
