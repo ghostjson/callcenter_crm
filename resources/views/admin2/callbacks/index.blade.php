@@ -113,7 +113,7 @@
                 processing: true,
                 serverSide: true,
                 bDestroy: true,
-                ajax: '{!! route('admin.get-callbacks') !!}?campaign_id=' + campaign_id + "&start_date=" + startDate + "&end_date=" + endDate + "&fetch_type=" + fetchType,
+                ajax: '{!! route('admin2.get-callbacks') !!}?campaign_id=' + campaign_id + "&start_date=" + startDate + "&end_date=" + endDate + "&fetch_type=" + fetchType,
                 aaSorting: [[5, "asc"]],
                 language: {
                     "url": "@lang('app.datatable')"
@@ -167,7 +167,7 @@
                     var campaign_id = $('#callEnquiryCampaign').val();
                     var token = "{{ csrf_token() }}";
 
-                    var url = "{{ route('admin.callmanager.skip-delete', ':id') }}?delete_callback=yes&campaign_id=" + campaign_id;
+                    var url = "{{ route('admin2.callmanager.skip-delete', ':id') }}?delete_callback=yes&campaign_id=" + campaign_id;
                     url = url.replace(':id', id);
 
                     $.easyAjax({
@@ -207,7 +207,7 @@
                     var campaign_id = $('#callEnquiryCampaign').val();
                     var token = "{{ csrf_token() }}";
 
-                    var url = "{{ route('admin.callmanager.cancel-callback', ':id') }}?cancel_callback=yes";
+                    var url = "{{ route('admin2.callmanager.cancel-callback', ':id') }}?cancel_callback=yes";
                     url = url.replace(':id', id);
 
                     $.easyAjax({
@@ -227,7 +227,7 @@
         }
 
         function viewLead(id) {
-            var url = '{{ route('admin.callmanager.view-lead', ':id') }}';
+            var url = '{{ route('admin2.callmanager.view-lead', ':id') }}';
             url = url.replace(':id', id);
             $.ajaxModal('#addEditModal', url)
         }

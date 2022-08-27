@@ -51,7 +51,7 @@
     });
 
     function viewLead (id) {
-        var url = '{{ route('admin.callmanager.view-lead', ':id') }}';
+        var url = '{{ route('admin2.callmanager.view-lead', ':id') }}';
         url      = url.replace(':id',id);
         $.ajaxModal('#addEditModal', url)
     }

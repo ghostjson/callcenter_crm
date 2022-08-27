@@ -167,7 +167,7 @@ class CampaignController extends AdminBaseController
                 'name',
                 function ($row) {
 
-                    return '<a href="'.route('admin.campaigns.show', md5($row->id)).'">'.$row->name.'</a>';
+                    return '<a href="'.route('admin2.campaigns.show', md5($row->id)).'">'.$row->name.'</a>';
                 }
             )
             ->editColumn(
@@ -266,7 +266,7 @@ class CampaignController extends AdminBaseController
 
         $this->yourLeadCount = Lead::where('campaign_id', $this->campaignDetails->id)->where('last_actioned_by', $this->user->id)->count();
         // Call the same create view for edit
-        return view('admin.campaigns.details.show', $this->data);
+        return view('admin2.campaigns.details.show', $this->data);
     }
     public function create()
     {
@@ -282,7 +282,7 @@ class CampaignController extends AdminBaseController
 
         $this->campaign = new Campaign();
         $this->campaignMembers = User::all();
-        return view('admin.campaigns.create', $this->data);
+        return view('admin2.campaigns.create', $this->data);
     }
 
     public function store(StoreRequest $request)
@@ -341,7 +341,7 @@ class CampaignController extends AdminBaseController
             }
 
             \DB::commit();
-            return Reply::redirect(route('admin.campaigns.index'), 'messages.createSuccess');
+            return Reply::redirect(route('admin2.campaigns.index'), 'messages.createSuccess');
         }
 
 
@@ -363,7 +363,7 @@ class CampaignController extends AdminBaseController
         $this->teamMembers = User::all();
 
         // Call the same create view for edit
-        return view('admin.campaigns.edit', $this->data);
+        return view('admin2.campaigns.edit', $this->data);
     }
 
     public function update(UpdateRequest $request,$id)

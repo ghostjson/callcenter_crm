@@ -51,7 +51,7 @@
                             @if($pageTitle != 'Dashboard')
                                 <ul class="breadcrumb pt-0">
                                     <li class="breadcrumb-item active"><a
-                                            href="{{ route('admin.dashboard.index') }}">@lang('menu.home')</a></li>
+                                            href="{{ route('admin2.dashboard.index') }}">@lang('menu.home')</a></li>
                                     <li class="breadcrumb-item"><a href="#">{{ $pageTitle }}</a></li>
                                 </ul>
                             @endif

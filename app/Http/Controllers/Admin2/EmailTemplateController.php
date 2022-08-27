@@ -68,7 +68,7 @@ class EmailTemplateController extends AdminBaseController
                 $text = '<div class="buttons">';
 
                 if($this->user->ability('admin', 'email_template_edit')) {
-                    $text .= '<a href="' . route('admin.email-templates.edit', $row->id) . '" class="btn btn-icon icon-left"
+                    $text .= '<a href="' . route('admin2.email-templates.edit', $row->id) . '" class="btn btn-icon icon-left"
                       data-toggle="tooltip" data-original-title="' . trans('app.edit') . '"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="cs-icon cs-icon-check mb-3 d-inline-block text-primary"><path d="M16 5L7.7051 14.2166C7.32183 14.6424 6.65982 14.6598 6.2547 14.2547L3 11"></path></svg></a>';
                 }
 

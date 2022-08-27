@@ -123,7 +123,7 @@ class UserController extends AdminBaseController
 
         $this->userDetails = new User();
         $this->roles = Role::all();
-        return view('admin.users.add-edit', $this->data);
+        return view('admin2.users.add-edit', $this->data);
     }
 
     public function store(StoreRequest $request)

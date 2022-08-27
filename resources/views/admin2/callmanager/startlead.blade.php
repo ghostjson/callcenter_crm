@@ -249,7 +249,7 @@
         });
 
         setInterval(function () {
-            var url = "{{ route('admin.callmanager.save-lead', [md5($lead->id)]) }}";
+            var url = "{{ route('admin2.callmanager.save-lead', [md5($lead->id)]) }}";
 
             $.easyAjax({
                 type: 'POST',
@@ -262,7 +262,7 @@
         }, 5000);
 
         function takeLeadAction(action) {
-            var url = "{{ route('admin.callmanager.lead-action', [$lead->id, ':action']) }}";
+            var url = "{{ route('admin2.callmanager.lead-action', [$lead->id, ':action']) }}";
             url = url.replace(':action', action);
 
             $.easyAjax({
@@ -276,7 +276,7 @@
         }
 
         function saveAndExit() {
-            var url = "{{ route('admin.callmanager.save-lead', [md5($lead->id)]) }}";
+            var url = "{{ route('admin2.callmanager.save-lead', [md5($lead->id)]) }}";
 
             $.easyAjax({
                 type: 'POST',
@@ -286,7 +286,7 @@
                 messagePosition: "toastr",
                 success: function (response) {
                     if (response.status == 'success') {
-                        window.location.href = "{{ route('admin.callmanager.index') }}";
+                        window.location.href = "{{ route('admin2.callmanager.index') }}";
                     }
                 }
             });
@@ -318,7 +318,7 @@
             }).then(function (isConfirm) {
 
                 if (isConfirm == 'confirm') {
-                    var url = "{{ route('admin.callmanager.skip-delete', [md5($lead->id)]) }}";
+                    var url = "{{ route('admin2.callmanager.skip-delete', [md5($lead->id)]) }}";
 
                     $.easyAjax({
                         type: 'POST',
@@ -328,7 +328,7 @@
                         redirect: true
                     });
                 } else if (isConfirm == 'skip') {
-                    var url = "{{ route('admin.callmanager.come-back', [md5($lead->id)]) }}";
+                    var url = "{{ route('admin2.callmanager.come-back', [md5($lead->id)]) }}";
 
                     $.easyAjax({
                         type: 'POST',
@@ -357,19 +357,19 @@
         }
 
         function viewAppointment() {
-            var url = '{{ route('admin.add-edit-appointments', md5($lead->id)) }}';
+            var url = '{{ route('admin2.add-edit-appointments', md5($lead->id)) }}';
             $.ajaxModal('#addEditModal', url);
         }
 
         function addEditAppointment(id) {
 
             if (typeof id != 'undefined') {
-                var url = "{{route('admin.appointments.update',':id')}}";
+                var url = "{{route('admin2.appointments.update',':id')}}";
                 url = url.replace(':id', id);
             }
 
             if (typeof id == 'undefined') {
-                url = "{{ route('admin.appointments.store') }}";
+                url = "{{ route('admin2.appointments.store') }}";
             }
 
             $.easyAjax({
@@ -406,7 +406,7 @@
             }).then(function (isConfirm) {
                 if (isConfirm) {
 
-                    var url = "{{ route('admin.appointments.destroy',':id') }}";
+                    var url = "{{ route('admin2.appointments.destroy',':id') }}";
                     url = url.replace(':id', id);
 
                     var token = "{{ csrf_token() }}";
@@ -450,19 +450,19 @@
         }
 
         function viewFollowUp() {
-            var url = '{{ route('admin.add-edit-callback', md5($lead->id)) }}';
+            var url = '{{ route('admin2.add-edit-callback', md5($lead->id)) }}';
             $.ajaxModal('#addEditModal', url);
         }
 
         function addEditFollowUp(id) {
 
             if (typeof id != 'undefined') {
-                var url = "{{route('admin.pending-callback.update',':id')}}";
+                var url = "{{route('admin2.pending-callback.update',':id')}}";
                 url = url.replace(':id', id);
             }
 
             if (typeof id == 'undefined') {
-                url = "{{ route('admin.pending-callback.store') }}";
+                url = "{{ route('admin2.pending-callback.store') }}";
             }
 
             $.easyAjax({
@@ -499,7 +499,7 @@
             }).then(function (isConfirm) {
                 if (isConfirm) {
 
-                    var url = "{{ route('admin.callmanager.cancel-callback', [md5($lead->id)]) }}";
+                    var url = "{{ route('admin2.callmanager.cancel-callback', [md5($lead->id)]) }}";
 
                     var token = "{{ csrf_token() }}";
 
@@ -533,7 +533,7 @@
         function sendEmailSelected() {
             var selectedEmailTemplate = $('#send_email').val();
 
-            var url = '{{ route('admin.email-templates.write-edit-email', [md5($lead->id)]) }}';
+            var url = '{{ route('admin2.email-templates.write-edit-email', [md5($lead->id)]) }}';
 
             if (selectedEmailTemplate != '') {
                 url = url + '/' + selectedEmailTemplate;
@@ -543,7 +543,7 @@
         }
 
         function sendMail() {
-            var url = '{{ route('admin.email-templates.send-mail', [md5($lead->id)]) }}';
+            var url = '{{ route('admin2.email-templates.send-mail', [md5($lead->id)]) }}';
 
             $.easyAjax({
                 url: url,

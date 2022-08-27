@@ -25,104 +25,104 @@ class PermissionCheckMiddleware
             $errorView = 'errors.403';
 
             // region Campaigns
-            if($routeName == 'admin.campaigns.index' && !$user->ability('admin', 'campaign_view,campaign_view_all'))
+            if($routeName == 'admin2.campaigns.index' && !$user->ability('admin', 'campaign_view,campaign_view_all'))
             {
                 return response()->view($errorView);
-            }else if($routeName == 'admin.campaigns.create' && !$user->ability('admin', 'campaign_create'))
+            }else if($routeName == 'admin2.campaigns.create' && !$user->ability('admin', 'campaign_create'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.campaigns.store' && !$user->ability('admin', 'campaign_create'))
+            } else if($routeName == 'admin2.campaigns.store' && !$user->ability('admin', 'campaign_create'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.campaigns.edit' && !$user->ability('admin', 'campaign_edit'))
+            } else if($routeName == 'admin2.campaigns.edit' && !$user->ability('admin', 'campaign_edit'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.campaigns.update' && !$user->ability('admin', 'campaign_edit'))
+            } else if($routeName == 'admin2.campaigns.update' && !$user->ability('admin', 'campaign_edit'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.campaigns.destroy' && !$user->ability('admin', 'campaign_delete'))
+            } else if($routeName == 'admin2.campaigns.destroy' && !$user->ability('admin', 'campaign_delete'))
             {
                 return response()->json($errorMessage);
             }
             //endregion
 
             // region Staff Member
-            if($routeName == 'admin.users.create' && !$user->ability('admin', 'staff_create'))
+            if($routeName == 'admin2.users.create' && !$user->ability('admin', 'staff_create'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.users.store' && !$user->ability('admin', 'staff_create'))
+            } else if($routeName == 'admin2.users.store' && !$user->ability('admin', 'staff_create'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.users.edit' && !$user->ability('admin', 'staff_edit'))
+            } else if($routeName == 'admin2.users.edit' && !$user->ability('admin', 'staff_edit'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.users.update' && !$user->ability('admin', 'staff_edit'))
+            } else if($routeName == 'admin2.users.update' && !$user->ability('admin', 'staff_edit'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.users.destroy' && !$user->ability('admin', 'staff_delete'))
+            } else if($routeName == 'admin2.users.destroy' && !$user->ability('admin', 'staff_delete'))
             {
                 return response()->json($errorMessage);
             }
             //endregion
 
             // region Sales Member
-            if($routeName == 'admin.sales-users.create' && !$user->ability('admin', 'sales_member_create'))
+            if($routeName == 'admin2.sales-users.create' && !$user->ability('admin', 'sales_member_create'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.sales-users.store' && !$user->ability('admin', 'sales_member_create'))
+            } else if($routeName == 'admin2.sales-users.store' && !$user->ability('admin', 'sales_member_create'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.sales-users.edit' && !$user->ability('admin', 'sales_member_edit'))
+            } else if($routeName == 'admin2.sales-users.edit' && !$user->ability('admin', 'sales_member_edit'))
             {
                 return response()->view('errors.403');
-            } else if($routeName == 'admin.sales-users.update' && !$user->ability('admin', 'sales_member_edit'))
+            } else if($routeName == 'admin2.sales-users.update' && !$user->ability('admin', 'sales_member_edit'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.sales-users.destroy' && !$user->ability('admin', 'sales_member_delete'))
+            } else if($routeName == 'admin2.sales-users.destroy' && !$user->ability('admin', 'sales_member_delete'))
             {
                 return response()->json($errorMessage);
             }
             //endregion
 
             // region Email Templates
-            if($routeName == 'admin.email-templates.index' && !$user->ability('admin', 'email_template_view,email_template_view_all'))
+            if($routeName == 'admin2.email-templates.index' && !$user->ability('admin', 'email_template_view,email_template_view_all'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.email-templates.create' && !$user->ability('admin', 'email_template_create'))
+            } else if($routeName == 'admin2.email-templates.create' && !$user->ability('admin', 'email_template_create'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.email-templates.store' && !$user->ability('admin', 'email_template_create'))
+            } else if($routeName == 'admin2.email-templates.store' && !$user->ability('admin', 'email_template_create'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.email-templates.edit' && !$user->ability('admin', 'email_template_edit'))
+            } else if($routeName == 'admin2.email-templates.edit' && !$user->ability('admin', 'email_template_edit'))
             {
                 return response()->view('errors.403');
-            } else if($routeName == 'admin.email-templates.update' && !$user->ability('admin', 'email_template_edit'))
+            } else if($routeName == 'admin2.email-templates.update' && !$user->ability('admin', 'email_template_edit'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.email-templates.destroy' && !$user->ability('admin', 'email_template_delete'))
+            } else if($routeName == 'admin2.email-templates.destroy' && !$user->ability('admin', 'email_template_delete'))
             {
                 return response()->json($errorMessage);
             }
             //endregion
 
             // region Forms
-            if($routeName == 'admin.forms.index' && !$user->ability('admin', 'form_view,form_view_all'))
+            if($routeName == 'admin2.forms.index' && !$user->ability('admin', 'form_view,form_view_all'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.forms.create' && !$user->ability('admin', 'form_create'))
+            } else if($routeName == 'admin2.forms.create' && !$user->ability('admin', 'form_create'))
             {
                 return response()->view($errorView);
-            } else if($routeName == 'admin.forms.store' && !$user->ability('admin', 'form_create'))
+            } else if($routeName == 'admin2.forms.store' && !$user->ability('admin', 'form_create'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.forms.edit' && !$user->ability('admin', 'form_edit'))
+            } else if($routeName == 'admin2.forms.edit' && !$user->ability('admin', 'form_edit'))
             {
                 return response()->view('errors.403');
-            } else if($routeName == 'admin.forms.update' && !$user->ability('admin', 'form_edit'))
+            } else if($routeName == 'admin2.forms.update' && !$user->ability('admin', 'form_edit'))
             {
                 return response()->json($errorMessage);
-            } else if($routeName == 'admin.forms.destroy' && !$user->ability('admin', 'form_delete'))
+            } else if($routeName == 'admin2.forms.destroy' && !$user->ability('admin', 'form_delete'))
             {
                 return response()->json($errorMessage);
             }
@@ -130,10 +130,10 @@ class PermissionCheckMiddleware
 
             // region Import Leads
 
-            if($routeName == 'admin.campaigns.import-leads' && !$user->ability('admin', 'import_lead'))
+            if($routeName == 'admin2.campaigns.import-leads' && !$user->ability('admin', 'import_lead'))
             {
                 return response()->view($errorView);
-            }else if(($routeName == 'admin.campaigns.import-lead-data' || $routeName == 'admin.campaigns.save-lead-data') && !$user->ability('admin', 'import_lead'))
+            }else if(($routeName == 'admin2.campaigns.import-lead-data' || $routeName == 'admin2.campaigns.save-lead-data') && !$user->ability('admin', 'import_lead'))
             {
                 return response()->json($errorMessage);
             }
@@ -142,9 +142,9 @@ class PermissionCheckMiddleware
 
             // region Export Leads
 
-            if(($routeName == 'admin.campaigns.export-leads' ||
-                    $routeName == 'admin.campaigns.get-export-leads' ||
-                    $routeName == 'admin.campaigns.download-export-leads'
+            if(($routeName == 'admin2.campaigns.export-leads' ||
+                    $routeName == 'admin2.campaigns.get-export-leads' ||
+                    $routeName == 'admin2.campaigns.download-export-leads'
                 ) && !$user->ability('admin', 'export_lead'))
             {
                 return response()->view($errorView);

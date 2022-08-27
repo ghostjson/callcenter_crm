@@ -49,6 +49,14 @@
 
 
 @section('scripts')
+    <script src="{{ asset('assets/modules/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/bootstrap-fileinput/bootstrap-fileinput.js') }}"></script>
+
+    <script src="{{ asset('assets/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/js/responsive.bootstrap.min.js') }}"></script>
     <script>
         var table = $('#users-table');
 
@@ -58,7 +66,7 @@
 
         function initializeDatatable() {
             var campaign_id = $('#callHistoryCampaign').val();
-            var url = '{!! route('admin.get-call-history') !!}?campaign_id='+campaign_id+'&from_page=enquiry';
+            var url = '{!! route('admin2.get-call-history') !!}?campaign_id='+campaign_id+'&from_page=enquiry';
 
             @if($user->ability('admin', 'campaign_view_all'))
             var team_member_id = $('#searchTeamMemberBy').val();
@@ -95,7 +103,7 @@
         function callHistoryCampaignSelected() {
             var id = $('#callHistoryCampaign').val();
 
-            var url = "{{ route('admin.call-history.campaign-team-member',':id') }}";
+            var url = "{{ route('admin2.call-history.campaign-team-member',':id') }}";
             url = url.replace(':id', id);
 
             var token = "{{ csrf_token() }}";
@@ -116,7 +124,7 @@
         }
 
         function viewLead (id) {
-            var url = '{{ route('admin.callmanager.view-lead', ':id') }}';
+            var url = '{{ route('admin2.callmanager.view-lead', ':id') }}';
             url      = url.replace(':id',id);
             $.ajaxModal('#addEditModal', url)
         }

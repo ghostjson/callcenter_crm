@@ -18,7 +18,7 @@ class AdminCheckMiddleware
     public function handle($request, Closure $next)
     {
         if (!auth()->guard('admin')->check() || !auth()->guard('admin')->user()->hasRole('admin')){
-            return Redirect::route('admin.login');
+            return Redirect::route('admin2.login');
         }
 
         return $next($request);
