@@ -24,10 +24,10 @@ class AdminLoginController extends MainBaseController
 
         // If a user is already logged in, redirect to dashboard Page
         if(auth()->guard('admin')->check()) {
-            return \Redirect::route('admin.dashboard.index');
+            return \Redirect::route('admin2.dashboard.index');
         }
 
-        return view('admin.login', $this->data);
+        return view('admin2.login', $this->data);
     }
 
     /**
@@ -75,6 +75,6 @@ class AdminLoginController extends MainBaseController
     public function logout()
     {
         auth()->guard('admin')->logout();
-        return redirect()->route('admin.login');
+        return redirect()->route('admin2.login');
     }
 }

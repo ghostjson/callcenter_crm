@@ -105,7 +105,7 @@
                 <div class="d-flex justify-content-between">
                     <h2 class="small-title">@lang('module_campaign.bookedApointment')</h2>
                     <div class="btn-group check-all-container mt-n1">
-                        <a href="{{ route('admin.appointments.index') }}"
+                        <a href="{{ route('admin2.appointments.index') }}"
                            class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-split"
                         >@lang('app.viewAll')</a>
                     </div>
@@ -155,7 +155,7 @@
                                                         class="col-11 col-md-3 d-flex flex-column justify-content-center mb-1 mb-md-0 order-1 order-md-1">
                                                         <div
                                                             class="text-muted text-small d-md-none">@lang('app.campaign')</div>
-                                                        <a href="{{ route('admin.campaigns.show', md5($bookedAppointment->campaign_id)) }}"
+                                                        <a href="{{ route('admin2.campaigns.show', md5($bookedAppointment->campaign_id)) }}"
                                                            class="text-truncate">{{ $bookedAppointment->campaign_name }}</a>
                                                     </div>
                                                     <div
@@ -178,7 +178,7 @@
                                                         class="col-6 col-md-2 d-flex flex-column justify-content-center align-items-md-end mb-1 mb-md-0 order-4 order-md-3">
                                                         <div
                                                             class="text-muted text-small d-md-none">@lang('app.campaign')</div>
-                                                        <a href="{{ route('admin.callmanager.lead', [md5($bookedAppointment->lead_id)]) }}">
+                                                        <a href="{{ route('admin2.callmanager.lead', [md5($bookedAppointment->lead_id)]) }}">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                  height="16" fill="currentColor" class="bi bi-play-fill"
                                                                  viewBox="0 0 16 16">
