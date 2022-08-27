@@ -14,12 +14,13 @@
     <!-- Vendor Styles Start -->
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/bootstrap.min.css") }}"/>
     <link rel="stylesheet" href="{{ asset("assets/css/vendor/OverlayScrollbars.min.css")}}"/>
-    <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2.min.css") }}" />
-    <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2-bootstrap4.min.css") }}" />
-    <link rel="stylesheet" href="{{ asset("assets/css/vendor/datatables.min.css") }}" />
+    <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2.min.css") }}"/>
+    <link rel="stylesheet" href="{{ asset("assets/css/vendor/select2-bootstrap4.min.css") }}"/>
     <link href="{{ asset('assets/modules/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/modules/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/modules/bootstrap-fileinput/bootstrap-fileinput.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ asset("assets/css/vendor/datatables.min.css") }}"/>
     <!-- Vendor Styles End -->
     <!-- Template Base Styles Start -->
     <link rel="stylesheet" href="{{ asset("assets/css/styles.css") }}"/>
@@ -49,17 +50,17 @@
                         <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
                             @if($pageTitle != 'Dashboard')
                                 <ul class="breadcrumb pt-0">
-                                    <li class="breadcrumb-item active"><a href="{{ route('admin.dashboard.index') }}">@lang('menu.home')</a></li>
+                                    <li class="breadcrumb-item active"><a
+                                            href="{{ route('admin.dashboard.index') }}">@lang('menu.home')</a></li>
                                     <li class="breadcrumb-item"><a href="#">{{ $pageTitle }}</a></li>
                                 </ul>
                             @endif
                         </nav>
                     </div>
-                    <!-- Title End -->
-
-
                 </div>
             </div>
+            <!-- Title End -->
+
             <!-- Title and Top Buttons End -->
 
             @yield('main')
@@ -82,6 +83,7 @@
 <script src="{{ asset('assets/js/vendor/select2.full.min.js') }}"></script>
 <script src="{{ asset('assets/modules/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{ asset('assets/modules/moment.min.js') }}"></script>
+<script src="{{ asset('assets/modules/jquery-ui/jquery-ui.min.js') }}"></script>
 
 <!-- Vendor Scripts End -->
 
@@ -94,6 +96,7 @@
 <script src="{{ asset('assets/js/base/settings.js') }}"></script>
 <script src="{{ asset('assets/js/base/init.js') }}"></script>
 <script src="{{ asset('assets/modules/fullcalendar/fullcalendar.min.js') }}"></script>
+<script src="{{ asset('assets/modules/bootstrap-fileinput/bootstrap-fileinput.js') }}"></script>
 
 <!-- Template Base Scripts End -->
 <!-- Page Specific Scripts Start -->
