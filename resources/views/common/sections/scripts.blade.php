@@ -17,7 +17,6 @@
 <script src="{{ asset('assets/js/twilio/browser-calls.js') }}"></script>
 @endif
 
-@yield('scripts')
 
 <!-- Template JS File -->
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
