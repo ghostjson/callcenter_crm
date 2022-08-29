@@ -89,7 +89,7 @@
         }
 
         function importLead() {
-            var url = "{{ route('admin.campaigns.import-lead-data') }}";
+            var url = "{{ route('admin2.campaigns.import-lead-data') }}";
 
             $.easyAjax({
                 type: 'POST',
@@ -111,7 +111,7 @@
             var leadFormFields =  JSON.stringify(jsMatchedColumnArray);
             $('#lead_form_fields').val(leadFormFields);
 
-            var url = "{{ route('admin.campaigns.save-lead-data') }}";
+            var url = "{{ route('admin2.campaigns.save-lead-data') }}";
 
             $.easyAjax({
                 type: 'POST',

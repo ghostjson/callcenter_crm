@@ -1,13 +1,13 @@
 @extends('admin2.layout')
 
 @section('main')
-    @include('admin.includes.add-edit-modal')
+    @include('admin2.partials.add-edit-modal')
 
     @if($user->ability('admin', 'campaign_create'))
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <a href="{{ route('admin.campaigns.create') }}" class="btn btn-icon icon-left btn-primary"><i
+                    <a href="{{ route('admin2.campaigns.create') }}" class="btn btn-icon icon-left btn-primary"><i
                             class="fa fa-plus"></i> @lang('module_campaign.addNewCampaign') </a>
                 </div>
             </div>
@@ -22,10 +22,10 @@
                         @if($campaignType == 'active') @lang('module_campaign.activeCampaigns') @else  @lang('module_campaign.completedCampaigns') @endif
                     </h3>
                     <div class="btn-group">
-                        <a href="{{ route('admin.campaigns.index') }}?type=active"
+                        <a href="{{ route('admin2.campaigns.index') }}?type=active"
                            class="btn btn-primary @if($campaignType == 'active') active @endif"
                            aria-current="page">@lang('module_campaign.activeCampaigns')</a>
-                        <a href="{{ route('admin.campaigns.index') }}?type=completed"
+                        <a href="{{ route('admin2.campaigns.index') }}?type=completed"
                            class="btn btn-primary @if($campaignType == 'completed') active @endif">@lang('module_campaign.completedCampaigns')</a>
                     </div>
                 </div>
@@ -212,7 +212,7 @@
                 info: false,
                 scrollX: true,
                 buttons: ['copy', 'excel', 'csv', 'print'],
-                ajax: '{!! route('admin.get-campaigns') !!}?campaign_type={{ $campaignType }}',
+                ajax: '{!! route('admin2.get-campaigns') !!}?campaign_type={{ $campaignType }}',
                 aaSorting: [[0, "desc"]],
                 sDom: '<"row"<"col-sm-12"<"table-container"t>r>><"row"<"col-12"p>>',
                 language: {
@@ -278,7 +278,7 @@
             }).then(function (isConfirm) {
                 if (isConfirm) {
 
-                    var url = "{{ route('admin.campaigns.destroy',':id') }}";
+                    var url = "{{ route('admin2.campaigns.destroy',':id') }}";
                     url = url.replace(':id', id);
 
                     var token = "{{ csrf_token() }}";
@@ -299,14 +299,14 @@
 
         @if($user->ability('admin', 'campaign_edit'))
         function editCampaignModal(id) {
-            var url = '{{ route('admin.campaigns.edit', ':id') }}';
+            var url = '{{ route('admin2.campaigns.edit', ':id') }}';
             url = url.replace(':id', id);
             $.ajaxModal('#addEditModal', url)
         }
 
         function editCampaign(id) {
 
-            var url = "{{route('admin.campaigns.update',':id')}}";
+            var url = "{{route('admin2.campaigns.update',':id')}}";
             url = url.replace(':id', id);
 
             $.easyAjax({
@@ -328,14 +328,14 @@
 
         @if($user->ability('admin', 'campaign_view_all') || $campaignDetails->created_by == $user->id)
         function addLeadModal(id) {
-            var url = "{{ route('admin.campaigns.lead.create', [':id']) }}";
+            var url = "{{ route('admin2.campaigns.lead.create', [':id']) }}";
             url = url.replace(':id', id);
 
             $.ajaxModal('#addEditModal', url);
         }
 
         function addNewLead(id) {
-            var url = "{{ route('admin.campaigns.lead.store', [':id']) }}";
+            var url = "{{ route('admin2.campaigns.lead.store', [':id']) }}";
             url = url.replace(':id', id);
 
             $.easyAjax({

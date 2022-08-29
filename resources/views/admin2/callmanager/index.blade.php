@@ -8,13 +8,13 @@
             <div class="card mb-5">
                 <div class="card-body d-flex justify-content-between">
                     <h3>
-                       @lang('module_campaign_activeCampaigns')
+                       @lang('module_campaign.activeCampaigns')
                     </h3>
                     <div class="btn-group">
-                        <a href="{{ route('admin.callmanager.index') }}"
+                        <a href="{{ route('admin2.callmanager.index') }}"
                            class="btn btn-primary @if($type == 'active') active @endif"
                            aria-current="page">@lang('module_campaign.activeCampaigns')</a>
-                        <a href="{{ route('admin.callmanager.index') }}?type=completed"
+                        <a href="{{ route('admin2.callmanager.index') }}?type=completed"
                            class="btn btn-primary @if($type == 'completed') active @endif">@lang('module_campaign.completedCampaigns')</a>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="card card-success profile-widget">
                         <div class="card-header">
                             <h4>
-                                <a href="{{ route('admin.campaigns.show', [md5($userCampaign->id)]) }}"> {{ $userCampaign->name }}</a>
+                                <a href="{{ route('admin2.campaigns.show', [md5($userCampaign->id)]) }}"> {{ $userCampaign->name }}</a>
                             </h4>
                         </div>
 {{--                        <div class="row mt-2" style="padding-left: 10px">--}}
@@ -192,7 +192,7 @@
                                     @lang('module_campaign.noCampaignAssignedMessage')
                                 </p>
                                 @if($user->ability('admin', 'campaign_create'))
-                                    <a href="{{ route('admin.campaigns.create') }}" class="btn btn-primary mt-4"><i
+                                    <a href="{{ route('admin2.campaigns.create') }}" class="btn btn-primary mt-4"><i
                                             class="fa fa-plus"></i> @lang('module_campaign.addNewCampaign') </a>
                                 @endif
                             </div>
@@ -261,7 +261,7 @@
         }).then(function(isConfirm) {
             if (isConfirm) {
 
-                var url = "{{ route('admin.callmanager.take-action', ':id') }}";
+                var url = "{{ route('admin2.callmanager.take-action', ':id') }}";
                 url = url.replace(':id', id);
 
                 var token = "{{ csrf_token() }}";
@@ -294,7 +294,7 @@
         }).then(function(isConfirm) {
             if (isConfirm) {
 
-                var url = "{{ route('admin.callmanager.stop', ':id') }}";
+                var url = "{{ route('admin2.callmanager.stop', ':id') }}";
                 url = url.replace(':id', id);
 
                 var token = "{{ csrf_token() }}";
@@ -318,7 +318,7 @@
             responsive: true,
             processing: true,
             serverSide: true,
-            ajax: '{!! route('admin.get-call-manager') !!}',
+            ajax: '{!! route('admin2.get-call-manager') !!}',
             aaSorting: [[0, "desc"]],
             language: {
                 "url": "@lang('app.datatable')"

@@ -12,8 +12,8 @@
         </div>
         <h1> {{ $pageTitle }}</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard.index') }}">@lang('menu.home')</a></div>
-            <div class="breadcrumb-item active"><a href="{{ route('admin.campaigns.index') }}">@lang('menu.campaigns')</a></div>
+            <div class="breadcrumb-item active"><a href="{{ route('admin2.dashboard.index') }}">@lang('menu.home')</a></div>
+            <div class="breadcrumb-item active"><a href="{{ route('admin2.campaigns.index') }}">@lang('menu.campaigns')</a></div>
             <div class="breadcrumb-item">@if($campaign->id != '') @lang('app.edit') @else @lang('app.create') @endif</div>
         </div>
     </div>
@@ -86,7 +86,7 @@
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                         <div class="col-sm-12 col-md-7">
-                            <a href="{{ route('admin.campaigns.index') }}" class="btn btn-secondary"> @lang('app.cancel')</a>
+                            <a href="{{ route('admin2.campaigns.index') }}" class="btn btn-secondary"> @lang('app.cancel')</a>
                             <button type="button" class="btn btn-icon icon-right btn-primary" onclick="nextStep(2);return false">@lang('app.next') <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
 
             $.easyAjax({
                 type: 'POST',
-                url: "{{route('admin.campaigns.store')}}",
+                url: "{{route('admin2.campaigns.store')}}",
                 file: true,
                 container: "#add-edit-form",
                 messagePosition: "toastr",

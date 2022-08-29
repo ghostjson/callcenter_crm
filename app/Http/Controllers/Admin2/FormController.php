@@ -73,7 +73,7 @@ class FormController extends AdminBaseController
                 $text = '<div class="buttons">';
 
                 if($this->user->ability('admin', 'form_edit')) {
-                    $text .= '<a href="' . route('admin.forms.edit', $row->id) . '" class="btn btn-icon icon-left"
+                    $text .= '<a href="' . route('admin2.forms.edit', $row->id) . '" class="btn btn-icon icon-left"
                       data-toggle="tooltip" data-original-title="' . trans('app.edit') . '"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="cs-icon cs-icon-edit mb-3 d-inline-block text-primary"><path d="M14.6263 2.54529C15.0872 2.08443 15.6781 1.79144 16.2692 1.73078C16.8603 1.67012 17.4031 1.84676 17.7782 2.22183C18.1533 2.5969 18.3299 3.13969 18.2692 3.73078C18.2086 4.32188 17.9156 4.91286 17.4547 5.37372L6.53217 16.2963L2.22183 17.7782L3.70375 13.4678L14.6263 2.54529Z"></path></svg></a>';
                 }
 

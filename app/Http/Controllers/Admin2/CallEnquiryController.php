@@ -136,7 +136,7 @@ class CallEnquiryController extends AdminBaseController
                 return Common::getLeadDataByColumn($row->lead_id, $this->emailArray);
             })
             ->editColumn('campaign_name', function ($row) {
-                return '<a href="'.route('admin.campaigns.show', md5($row->campaign_id)).'">'.$row->campaign_name.'</a>';
+                return '<a href="'.route('admin2.campaigns.show', md5($row->campaign_id)).'">'.$row->campaign_name.'</a>';
             })
             ->addColumn('action', function ($row) {
                 $text = '<div class="dropdown d-inline">
@@ -150,7 +150,7 @@ class CallEnquiryController extends AdminBaseController
 
                 if($row->campaign_status != 'completed')
                 {
-                    $text .= '<a class="dropdown-item has-icon"href="'.route('admin.callmanager.lead', [md5($row->lead_id)]).'"><i class="fa fa-play"></i> '.trans('module_call_enquiry.goAndResumeCall').'</a>
+                    $text .= '<a class="dropdown-item has-icon"href="'.route('admin2.callmanager.lead', [md5($row->lead_id)]).'"><i class="fa fa-play"></i> '.trans('module_call_enquiry.goAndResumeCall').'</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item has-icon" href="javascript:void(0);" onclick="deleteLead(\''.md5($row->lead_id).'\')"><i class="fa fa-trash"></i> '.trans('module_call_enquiry.deleteLead').'</a>';
                 }

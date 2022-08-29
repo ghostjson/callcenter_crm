@@ -1,25 +1,7 @@
-@extends('admin.admin_layouts')
+@extends('admin2.layout')
 
-@section('styles')
+@section('main')
     <link href="{{ asset('assets/modules/summernote/summernote-bs4.css') }}" rel="stylesheet">
-@endsection
-
-@section('breadcrumb')
-
-    <div class="section-header">
-        <div class="section-header-back">
-            <a href="{{ route('admin.email-templates.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
-        </div>
-        <h1> {{ $pageTitle }}</h1>
-        <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard.index') }}">@lang('menu.home')</a></div>
-            <div class="breadcrumb-item active"><a href="{{ route('admin.email-templates.index') }}">@lang('menu.emailTemplates')</a></div>
-            <div class="breadcrumb-item">@if($emailTemplate->id != '') @lang('app.edit') @else @lang('app.create') @endif</div>
-        </div>
-    </div>
-@endsection
-
-@section('content')
 
     <h2 class="section-title">@if($emailTemplate->id != '') @lang('app.edit') @else @lang('app.create') @endif</h2>
     <p class="section-lead">@lang('module_email_template.createEmailTemplateMessage')</p>
@@ -73,7 +55,7 @@
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                         <div class="col-sm-12 col-md-7">
                             <button id="saveFormButton" type="submit" class="btn btn-icon icon-left btn-success" onclick="addOrEdit({{ isset($emailTemplate->id) ? $emailTemplate->id : '' }});return false"><i class="fas fa-check"></i> @if($emailTemplate->id != '') @lang('app.update') @else @lang('app.save') @endif</button>
-                            <a href="{{ route('admin.email-templates.index') }}" class="btn btn-secondary"> @lang('app.cancel')</a>
+                            <a href="{{ route('admin2.email-templates.index') }}" class="btn btn-secondary"> @lang('app.cancel')</a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +67,7 @@
 @endsection
 
 @section('modals')
-    @include('admin.includes.add-edit-modal')
+    @include('admin2.partials.add-edit-modal')
 @endsection
 
 @section('scripts')
@@ -103,13 +85,13 @@
         function addOrEdit(id) {
 
             if(typeof id != 'undefined'){
-                var url  ="{{route('admin.email-templates.update',':id')}}";
+                var url  ="{{route('admin2.email-templates.update',':id')}}";
                 url      = url.replace(':id',id);
             }
 
 
             if (typeof id == 'undefined'){
-                url = "{{ route('admin.email-templates.store') }}";
+                url = "{{ route('admin2.email-templates.store') }}";
             }
 
             $.easyAjax({

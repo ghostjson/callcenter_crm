@@ -110,7 +110,7 @@
 <script>
 
     function login() {
-        var url = "{{ route('admin.login_check') }}";
+        var url = "{{ route('admin2.login_check') }}";
 
         $.easyAjax({
             url: url,

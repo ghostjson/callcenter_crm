@@ -12,8 +12,8 @@
     <div class="section-header">
         <h1><i class="{{ $pageIcon }}"></i> {{ $pageTitle }}</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard.index') }}">@lang('menu.home')</a></div>
-            <div class="breadcrumb-item"><a href="{{ route('admin.campaigns.index') }}">@lang('menu.campaigns')</a></div>
+            <div class="breadcrumb-item active"><a href="{{ route('admin2.dashboard.index') }}">@lang('menu.home')</a></div>
+            <div class="breadcrumb-item"><a href="{{ route('admin2.campaigns.index') }}">@lang('menu.campaigns')</a></div>
             <div class="breadcrumb-item">{{ $pageTitle }}</div>
         </div>
     </div>
@@ -292,7 +292,7 @@
                 processing: true,
                 serverSide: true,
                 bDestroy:true,
-                ajax: '{!! route('admin.get-call-enquiry') !!}?campaign_id={{ $campaignDetails->id }}&form_field_id='+form_field_id+'&form_field_value='+form_field_value+'&from_page=campaign_detail',
+                ajax: '{!! route('admin2.get-call-enquiry') !!}?campaign_id={{ $campaignDetails->id }}&form_field_id='+form_field_id+'&form_field_value='+form_field_value+'&from_page=campaign_detail',
                 aaSorting: [[0, "desc"]],
                 language: {
                     "url": "@lang('app.datatable')"
@@ -317,7 +317,7 @@
         function callEnquiryCampaignSelected() {
             var campaignId = $('#callSelectedCampaign').val();
 
-            window.location.href = "{{ route('admin.campaigns.show', ':id') }}".replace(':id', campaignId);
+            window.location.href = "{{ route('admin2.campaigns.show', ':id') }}".replace(':id', campaignId);
         }
 
         function deleteLead(id) {
@@ -341,7 +341,7 @@
                 {
                     var token = "{{ csrf_token() }}";
 
-                    var url = "{{ route('admin.callmanager.skip-delete', ':id') }}?delete=yes&campaign_id={{$campaignDetails->id}}";
+                    var url = "{{ route('admin2.callmanager.skip-delete', ':id') }}?delete=yes&campaign_id={{$campaignDetails->id}}";
                     url = url.replace(':id', id);
 
                     $.easyAjax({
@@ -360,18 +360,18 @@
         }
 
         function viewLead (id) {
-            var url = '{{ route('admin.callmanager.view-lead', ':id') }}';
+            var url = '{{ route('admin2.callmanager.view-lead', ':id') }}';
             url      = url.replace(':id',id);
             $.ajaxModal('#addEditModal', url)
         }
 
         @if($user->ability('admin', 'campaign_view_all') || $campaignDetails->created_by == $user->id)
             function addLeadModal () {
-                $.ajaxModal('#addEditModal','{{ route('admin.campaigns.lead.create', [md5($campaignDetails->id)]) }}');
+                $.ajaxModal('#addEditModal','{{ route('admin2.campaigns.lead.create', [md5($campaignDetails->id)]) }}');
             }
 
             function addNewLead(id) {
-                var url = "{{ route('admin.campaigns.lead.store', [':id']) }}";
+                var url = "{{ route('admin2.campaigns.lead.store', [':id']) }}";
                 url = url.replace(':id', id);
 
                 $.easyAjax({
@@ -401,7 +401,7 @@
 
         function initializeCallHistoryDatatable() {
             var campaign_id = $('#callHistoryCampaign').val();
-            var url = '{!! route('admin.get-call-history') !!}?campaign_id={{ $campaignDetails->id }}&from_page=campaign_detail';
+            var url = '{!! route('admin2.get-call-history') !!}?campaign_id={{ $campaignDetails->id }}&from_page=campaign_detail';
 
             @if($user->ability('admin', 'campaign_view_all'))
             var team_member_id = $('#searchTeamMemberBy').val();
@@ -438,7 +438,7 @@
         function callHistoryCampaignSelected() {
             var id = $('#callHistoryCampaign').val();
 
-            var url = "{{ route('admin.call-history.campaign-team-member',':id') }}";
+            var url = "{{ route('admin2.call-history.campaign-team-member',':id') }}";
             url = url.replace(':id', id);
 
             var token = "{{ csrf_token() }}";
@@ -459,7 +459,7 @@
         }
 
         function viewLead (id) {
-            var url = '{{ route('admin.callmanager.view-lead', ':id') }}';
+            var url = '{{ route('admin2.callmanager.view-lead', ':id') }}';
             url      = url.replace(':id',id);
             $.ajaxModal('#addEditModal', url)
         }

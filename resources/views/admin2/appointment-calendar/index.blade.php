@@ -55,7 +55,7 @@
             right: 'month,agendaWeek,agendaDay'
         },
         events: {
-            url: "{{ route('admin.get-appointments') }}",
+            url: "{{ route('admin2.get-appointments') }}",
             method: 'POST',
             data: function() {
                 return {
@@ -68,7 +68,7 @@
         eventClick: function(calEvent, jsEvent, view) {
 
             var id = calEvent.appointment_id;
-            var url = '{{ route('admin.appointments.edit', ':id') }}';
+            var url = '{{ route('admin2.appointments.edit', ':id') }}';
             url      = url.replace(':id',id);
             $.ajaxModal('#addEditModal', url);
         }
@@ -81,7 +81,7 @@
 
     function editAppointment(id) {
 
-        var url  ="{{route('admin.appointments.update',':id')}}";
+        var url  ="{{route('admin2.appointments.update',':id')}}";
         url      = url.replace(':id',id);
 
         $.easyAjax({
@@ -117,7 +117,7 @@
         }).then(function(isConfirm) {
             if (isConfirm) {
 
-                var url = "{{ route('admin.appointments.destroy',':id') }}";
+                var url = "{{ route('admin2.appointments.destroy',':id') }}";
                 url = url.replace(':id', id);
 
                 var token = "{{ csrf_token() }}";

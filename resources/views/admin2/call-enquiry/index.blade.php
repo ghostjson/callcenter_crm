@@ -91,7 +91,7 @@
                 bDestroy:true,
                 searching: false,
                 info: false,
-                ajax: '{!! route('admin.get-call-enquiry') !!}?campaign_id='+campaign_id+'&form_field_id='+form_field_id+'&form_field_value='+form_field_value+'&from_page=enquiry',
+                ajax: '{!! route('admin2.get-call-enquiry') !!}?campaign_id='+campaign_id+'&form_field_id='+form_field_id+'&form_field_value='+form_field_value+'&from_page=enquiry',
                 aaSorting: [[0, "desc"]],
                 language: {
                     "url": "@lang('app.datatable')"
@@ -116,7 +116,7 @@
         function callEnquiryCampaignSelected() {
             var id = $('#callEnquiryCampaign').val();
 
-            var url = "{{ route('admin.call-enquiry.campaign-form-field',':id') }}";
+            var url = "{{ route('admin2.call-enquiry.campaign-form-field',':id') }}";
             url = url.replace(':id', id);
 
             var token = "{{ csrf_token() }}";
@@ -161,7 +161,7 @@
                     var campaign_id = $('#callEnquiryCampaign').val();
                     var token = "{{ csrf_token() }}";
 
-                    var url = "{{ route('admin.callmanager.skip-delete', ':id') }}?delete=yes&campaign_id="+campaign_id;
+                    var url = "{{ route('admin2.callmanager.skip-delete', ':id') }}?delete=yes&campaign_id="+campaign_id;
                     url = url.replace(':id', id);
 
                     $.easyAjax({
@@ -181,7 +181,7 @@
         }
 
         function viewLead (id) {
-            var url = '{{ route('admin.callmanager.view-lead', ':id') }}';
+            var url = '{{ route('admin2.callmanager.view-lead', ':id') }}';
             url      = url.replace(':id',id);
             $.ajaxModal('#addEditModal', url)
         }

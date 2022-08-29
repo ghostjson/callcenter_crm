@@ -87,7 +87,7 @@ class CallManagerController extends AdminBaseController
                 'name',
                 function ($row) {
 
-                    return '<a href="'.route('admin.campaigns.show', md5($row->id)).'">'.$row->name.'</a>';
+                    return '<a href="'.route('admin2.campaigns.show', md5($row->id)).'">'.$row->name.'</a>';
                 }
             )
             ->editColumn(
@@ -174,7 +174,7 @@ class CallManagerController extends AdminBaseController
         }
         $campaign->save();
 
-        $newLeadUrl = route('admin.callmanager.lead', md5($lead->id));
+        $newLeadUrl = route('admin2.callmanager.lead', md5($lead->id));
         return Reply::redirect($newLeadUrl);
     }
 
@@ -207,7 +207,7 @@ class CallManagerController extends AdminBaseController
         $campaign->remaining_leads = 0;
         $campaign->save();
 
-        return Reply::redirect( route('admin.callmanager.index'), 'module_campaign.stopCampaignSuccess');
+        return Reply::redirect( route('admin2.callmanager.index'), 'module_campaign.stopCampaignSuccess');
     }
 
     public function getUsersList()
@@ -375,7 +375,7 @@ class CallManagerController extends AdminBaseController
             // Saving lead data
             $this->saveLeadData($request, md5($currentLead->id));
 
-            return Reply::redirect( route('admin.callmanager.lead', [md5($lead->id)]), 'module_campaign.leadDataSaved');
+            return Reply::redirect( route('admin2.callmanager.lead', [md5($lead->id)]), 'module_campaign.leadDataSaved');
         } else if($action == 'next')
         {
             // Checking if next lead exists for current user
@@ -399,10 +399,10 @@ class CallManagerController extends AdminBaseController
             // If no further lead exists in campaign
             if(!$lead)
             {
-                return Reply::redirect( route('admin.callmanager.index'), 'module_campaign.noLeadExists');
+                return Reply::redirect( route('admin2.callmanager.index'), 'module_campaign.noLeadExists');
             }
 
-            return Reply::redirect( route('admin.callmanager.lead', [md5($lead->id)]), 'module_campaign.leadDataSaved');
+            return Reply::redirect( route('admin2.callmanager.lead', [md5($lead->id)]), 'module_campaign.leadDataSaved');
         }
     }
 
@@ -482,7 +482,7 @@ class CallManagerController extends AdminBaseController
             // Call Enquiry Stats
             $this->getCallEnquiryStats($request->campaign_id);
 
-            $htmlStats = view('admin.call-enquiry.call-enquiry-stats', $this->data)->render();
+            $htmlStats = view('admin2.call-enquiry.call-enquiry-stats', $this->data)->render();
 
             $resultData = [
                 'stats' => $htmlStats
@@ -498,7 +498,7 @@ class CallManagerController extends AdminBaseController
             // Get callback information of today or un actioned calls
             $this->getCallBackStats();
 
-            $htmlStats = view('admin.callbacks.call-back-stats', $this->data)->render();
+            $htmlStats = view('admin2.callbacks.call-back-stats', $this->data)->render();
 
             $resultData = [
                 'stats' => $htmlStats
@@ -515,7 +515,7 @@ class CallManagerController extends AdminBaseController
 
         if($nextLead)
         {
-            $redirectUrl = route('admin.callmanager.lead', [md5($nextLead->id)]);
+            $redirectUrl = route('admin2.callmanager.lead', [md5($nextLead->id)]);
         } else {
 
             // Next unactioned lead
@@ -523,9 +523,9 @@ class CallManagerController extends AdminBaseController
 
             if($nextUnActionedLead)
             {
-                $redirectUrl = route('admin.callmanager.lead', [md5($nextUnActionedLead->id)]);
+                $redirectUrl = route('admin2.callmanager.lead', [md5($nextUnActionedLead->id)]);
             } else {
-                $redirectUrl = route('admin.callmanager.index');
+                $redirectUrl = route('admin2.callmanager.index');
             }
         }
 
@@ -554,7 +554,7 @@ class CallManagerController extends AdminBaseController
 
         if($nextLead)
         {
-            $redirectUrl = route('admin.callmanager.lead', [md5($nextLead->id)]);
+            $redirectUrl = route('admin2.callmanager.lead', [md5($nextLead->id)]);
         } else {
 
             // Next unactioned lead
@@ -562,9 +562,9 @@ class CallManagerController extends AdminBaseController
 
             if($nextUnActionedLead)
             {
-                $redirectUrl = route('admin.callmanager.lead', [md5($nextUnActionedLead->id)]);
+                $redirectUrl = route('admin2.callmanager.lead', [md5($nextUnActionedLead->id)]);
             } else {
-                $redirectUrl = route('admin.callmanager.index');
+                $redirectUrl = route('admin2.callmanager.index');
             }
         }
 
@@ -618,7 +618,7 @@ class CallManagerController extends AdminBaseController
             // Get callback information of today or un actioned calls
             $this->getCallBackStats();
 
-            $htmlStats = view('admin.callbacks.call-back-stats', $this->data)->render();
+            $htmlStats = view('admin2.callbacks.call-back-stats', $this->data)->render();
 
             $resultData = [
                 'stats' => $htmlStats
@@ -646,7 +646,7 @@ class CallManagerController extends AdminBaseController
         $this->lead = Lead::whereRaw('md5(id) = ?', $id)->with('campaign', 'leadData', 'lastActioner')->first();
         $this->leadCampaign = $this->lead->campaign;
 
-        return view('admin.callmanager.view-lead', $this->data);
+        return view('admin2.callmanager.view-lead', $this->data);
     }
 
     private function deleteCampaignLead($lead)
