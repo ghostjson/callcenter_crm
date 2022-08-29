@@ -11,11 +11,11 @@ if (env('THEME_VERSION') == 'v1'){
 
 
 // Login And Forget Password Routes
-Route::group(['namespace' => 'Auth', 'prefix' => 'admin', 'middleware' => ['web']], function () {
+Route::group(['namespace' => 'Auth2', 'prefix' => 'admin', 'middleware' => ['web']], function () {
 
-    Route::get('login', ['as' => 'admin.login', 'uses' => 'AdminLoginController@index']);
-    Route::post('login', ['as' => 'admin.login_check', 'uses' => 'AdminLoginController@ajaxLogin']);
-    Route::get('logout', ['as' => 'admin.logout', 'uses' => 'AdminLoginController@logout']);
+    Route::get('login', ['as' => 'admin2.login', 'uses' => 'AdminLoginController@index']);
+    Route::post('login', ['as' => 'admin2.login_check', 'uses' => 'AdminLoginController@ajaxLogin']);
+    Route::get('logout', ['as' => 'admin2.logout', 'uses' => 'AdminLoginController@logout']);
 });
 
 Route::get('stage', function (){
