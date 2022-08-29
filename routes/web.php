@@ -18,9 +18,6 @@ Route::group(['namespace' => 'Auth2', 'prefix' => 'admin', 'middleware' => ['web
     Route::get('logout', ['as' => 'admin2.logout', 'uses' => 'AdminLoginController@logout']);
 });
 
-Route::get('stage', function (){
-  return view('stage');
-});
 
 // Admin Panel After Login
 Route::group(['middleware' => ['auth.admin', 'web', 'admin.permission.check'],'namespace' => $namespace, 'prefix' => 'admin'], function () {
