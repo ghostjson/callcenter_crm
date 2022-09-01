@@ -1,40 +1,7 @@
-@extends('admin.admin_layouts')
+@extends('admin2.layout')
 
-@section('styles')
-    <link href="{{ asset('assets/modules/datatables/datatables.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/modules/select2/dist/css/select2.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
-@endsection
+@section('main')
 
-@section('breadcrumb')
-
-    <div class="section-header">
-        <h1><i class="{{ $pageIcon }}"></i> {{ $pageTitle }}</h1>
-        <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="{{ route('admin2.dashboard.index') }}">@lang('menu.home')</a></div>
-            <div class="breadcrumb-item"><a href="{{ route('admin2.campaigns.index') }}">@lang('menu.campaigns')</a></div>
-            <div class="breadcrumb-item">{{ $pageTitle }}</div>
-        </div>
-    </div>
-@endsection
-
-@section('content')
-
-    <div class="row mt-2">
-        <div class="col-md-3">
-            <div class="form-group">
-                <select id="callSelectedCampaign" class="form-control select2" onchange="callEnquiryCampaignSelected()">
-                    @if($campaignDetails->status == 'completed')
-                        <option value="{{ md5($campaignDetails->id) }}" selected>{{ $campaignDetails->name }}</option>
-                    @endif
-                    @foreach($user->activeCampaigns() as $allCampaign)
-                        <option value="{{ md5($allCampaign->id) }}" @if($allCampaign->id == $campaignDetails->id) selected @endif>{{ $allCampaign->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="card card-statistic-2">
@@ -264,7 +231,7 @@
 @endsection
 
 @section('modals')
-    @include('admin.includes.add-edit-modal')
+    @include('admin2.partials.add-edit-modal')
 @endsection
 
 @section('scripts')

@@ -57,7 +57,7 @@ class AdminLoginController extends MainBaseController
             $remember    = $request->remember ? true : false;
 
             if (auth()->guard('admin')->attempt($credentials, $remember)) {
-                $url = route('admin.dashboard.index');
+                $url = route('admin2.dashboard.index');
 
                 // User login success
                 return Reply::redirect($url, 'messages.loginSuccess');
