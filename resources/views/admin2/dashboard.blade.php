@@ -100,6 +100,20 @@
     </div>
 
     <div class="row">
+        <div class="col-12">
+            <section class="scroll-section" id="areaChartTitle">
+                <h2 class="small-title">@lang('app.last7Days')</h2>
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <div class="sh-35">
+                            <canvas id="chart-stage"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 mb-5">
             <section class="scroll-section" id="checkboxes">
                 <div class="d-flex justify-content-between">
@@ -216,4 +230,145 @@
 
     </div>
 
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('assets/modules/chart.min.js') }}"></script>
+    <script>
+
+
+        $(document).ready(function(){
+            const areaChart = document.getElementById('chart-stage').getContext('2d');
+            const chart = new Chart(areaChart, {
+                type: 'line',
+                options: {
+                    plugins: {
+                        crosshair: {
+                            line: {
+                                color: Globals.separator,
+                                width: 1,
+                            },
+                            sync: {
+                                enabled: false,
+                            },
+                            pan: {
+                                incrementer: 3,
+                            },
+                            zoom: {
+                                enabled: false,
+                            },
+                        },
+                        datalabels: {display: false},
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [
+                            {
+                                gridLines: {display: true, lineWidth: 1, color: Globals.separatorLight, drawBorder: false},
+                                ticks: {
+                                    beginAtZero: true,
+                                    stepSize: 2,
+                                    min: 0,
+                                    max: 16,
+                                    padding: 20,
+                                    fontColor: Globals.alternate
+                                },
+                            },
+                        ],
+                        xAxes: [
+                            {
+                                gridLines: {display: false},
+                                ticks: {fontColor: Globals.alternate},
+                            },
+                        ],
+                    },
+                    legend: {display: false},
+                    tooltips: {
+                        backgroundColor: Globals.foreground,
+                        titleFontColor: Globals.primary,
+                        borderColor: Globals.separator,
+                        borderWidth: 1,
+                        bodyFontColor: Globals.body,
+                        fontFamily: Globals.font,
+                        bodySpacing: 10,
+                        xPadding: 15,
+                        yPadding: 15,
+                        cornerRadius: parseInt(Globals.borderRadiusMd),
+                        displayColors: false,
+                        intersect: false,
+                        position: 'nearest',
+                        mode: 'index',
+                    },
+                },
+                data:{
+                    labels: {!! json_encode($dateArray) !!},
+                    datasets: [
+                        {
+                            label: '',
+                            data: {!! json_encode($leadCountArray) !!},
+                            borderColor: Globals.primary,
+                            pointBackgroundColor: Globals.foreground,
+                            pointBorderColor: Globals.primary,
+                            pointHoverBackgroundColor: Globals.primary,
+                            pointHoverBorderColor: Globals.foreground,
+                            pointRadius: 4,
+                            pointBorderWidth: 2,
+                            pointHoverRadius: 5,
+                            fill: true,
+                            borderWidth: 2,
+                            backgroundColor: 'rgba(' + Globals.primaryrgb + ',0.1)',
+                        },
+                    ],
+                },
+            });
+        })
+
+
+        // const ctx = document.getElementById("myChart").getContext('2d');
+        {{--const myChart = new Chart(ctx, {--}}
+        {{--    type: 'line',--}}
+        {{--    data: {--}}
+        {{--        labels: {!! json_encode($dateArray) !!},--}}
+        {{--        datasets: [{--}}
+        {{--            label: "{{ trans('app.calls') }}",--}}
+        {{--            data: {!! json_encode($leadCountArray) !!},--}}
+        {{--            borderWidth: 2,--}}
+        {{--            backgroundColor: 'rgba(63,82,227,.8)',--}}
+        {{--            borderColor: 'transparent',--}}
+        {{--            pointBorderWidth: 0,--}}
+        {{--            pointRadius: 3.5,--}}
+        {{--            pointBackgroundColor: 'transparent',--}}
+        {{--            pointHoverBackgroundColor: 'rgba(63,82,227,.8)',--}}
+        {{--        }]--}}
+        {{--    },--}}
+        {{--    options: {--}}
+        {{--        legend: {--}}
+        {{--            display: false--}}
+        {{--        },--}}
+        {{--        scales: {--}}
+        {{--            yAxes: [{--}}
+        {{--                gridLines: {--}}
+        {{--                    // display: false,--}}
+        {{--                    drawBorder: false,--}}
+        {{--                    color: '#f2f2f2',--}}
+        {{--                },--}}
+        {{--                ticks: {--}}
+        {{--                    beginAtZero: true,--}}
+        {{--                    stepSize: 1,--}}
+        {{--                    callback: function (value, index, values) {--}}
+        {{--                        return value;--}}
+        {{--                    }--}}
+        {{--                }--}}
+        {{--            }],--}}
+        {{--            xAxes: [{--}}
+        {{--                gridLines: {--}}
+        {{--                    display: false,--}}
+        {{--                    tickMarkLength: 15,--}}
+        {{--                }--}}
+        {{--            }]--}}
+        {{--        },--}}
+        {{--    }--}}
+        {{--});--}}
+    </script>
 @endsection

@@ -98,6 +98,7 @@
 <script src="{{ asset('assets/modules/fullcalendar/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('assets/modules/bootstrap-fileinput/bootstrap-fileinput.js') }}"></script>
 
+@yield('scripts')
 <!-- Template Base Scripts End -->
 <!-- Page Specific Scripts Start -->
 <script src="{{ asset('assets/js/pages/auth.login.js') }}"></script>
@@ -107,7 +108,6 @@
 <script src="{{ asset('assets/modules/izitoast/js/iziToast.min.js') }}"></script>
 <script src="{{ asset('assets/modules/sweetalert/sweetalert.min.js') }}"></script>
 
-@yield('scripts')
 
 </body>
 </html>
